@@ -18,10 +18,27 @@ O  sistema operacional funciona através de camadas, então temos a seguinte for
     |Microprogramação|
     |Circuitos eletrônicos|
 
-Resumindo: O usuário interage com as **Aplicações**. Essas aplicações interagem com os **utilitários**, e e esses interagem com o **sistema operacional** e esse transforma o nosso pedido em **linguagem de maquina** (*linguagem binária*)e essa trabalha com a **microprogramção** que vai acionar os **circuitos eletrônicos**
+Resumindo: O usuário interage com as **Aplicações**. Essas aplicações interagem com os **utilitários**, e e esses interagem com o **sistema operacional** e esse transforma o nosso pedido em **linguagem de maquina** (*linguagem binária*)e essa trabalha com a **microprogramção** que vai acionar os **circuitos eletrônicos**  
+#### Então, qual as principais funções do sistema operacional?
+- Oferecer meios para que um programa seja carregado em memória e executado.  
+- Um sistema de arquivos, permitindo criar, ler, escrever e excluir arquivos.  
+- Uma interface de acesso aos periféricos.  
+- Mecanismos de monitoração de recurso, capazes de identificar os possíveis gargalos no sistema.  
+- Meios para armazenar/manter o estado do sistema.
 
 ### Kernel
-O núcleo do sistema se chama Kernel. Esse é composto por um processador, memória, sistema de arquivos, além de gerenciar os dispositivos de entrada e saída.
+O núcleo do sistema se chama Kernel. Esse é composto por um processador, memória, sistema de arquivos, além de gerenciar os dispositivos de entrada e saída. Ele quem faz o gerenciamento dos recursos do computador. As principais funções desse núcleo são:  
+- Tratamento de interrupções  
+- Gerenciamento, sincronização, comunicação e escalonamento de proecessos e threads  
+- Gerenciamento da memória  
+- Gerenciamento dos sistemas de Arquivos  
+- Gerenciamento dos dispositivos de E/S  
+- Auditoria e segurança do sistema  
+Os modos de acesso aos serviços do núcleo podem ser realiados de duas formas,  
+- Modo usuário: Programas podem executar ações sem privilégio, como a leitura de um arquivo.  
+- Modo Kernel: Nesse, o acesso pode ser realizado de modo usuário E de modo com privilégio tota, como o acesso ao disco.  
+Quando um programa é executado o kernel é consultado para saber se o acesso será realizado me modo usuário ou kernel.  
+
 
 ### Classificação dos sistemas operacionais
 Os sistemas operacionais podem ser classificados em:
@@ -42,8 +59,17 @@ Utilizam duas ou ais *UCPs* (Unidade Central de Processamento) que trabalham em 
 
 A internet é um sistema operacional de múltiplos processadores fracamente acoplado conhecido também como *Sistemas distribuídos*.
 
-### Unidade funcionais do sistema computacional
-Eis a arquitetura do sistema operacional:  
+### Unidade funcionais do sistema computacional e Arquitetura do SO 
+**Monolítica:** Módulos executados separadamente mas que compõem um único executável. Aqui o SO é escrito como um conjunto de módulos compilados separadamente e depois agrupados em um arquivo executável.  
+**Camadas:** Devido a complexidade do sistema, aqui o SO organiza como uma hierarquia de camadas construídas umas sobre as outras. 
+**Máquina Virtual:** Faz o intermédio entre o hardware e o sistema operacional, Oferece todos os serviços do Sistema O. Pode haver várias máquinas virtuais em uma única máquina.
+**Microkernel:** Menor e mais simples, Trata serviços por processos que oferecem funções específicas.  
+Ele tem modos de tratamento de dados em Hardware, Software e Armazenamento  
+
+**Hardware:** Os dados do processo ficam armazenados nos registradores (status, PC e SP)
+**Software:** Há especificação de recursos e suas limitações para que possam ser alocados os processos. Nome, ÍD(identificaçao), Owner, prioridade, data/hora, tempo de processador etc
+**Armazenamento:** Refere-se a area de memória que será alocado o processo para que possa ser executado
+Eis algumas partes da arquitetura do sistema operacional:  
 **Processador:** Gerencia o sistema computacional.  
 **Unidade de controle (UC):** Gerencia as atividades dos componentes do computador como gravação de dados e localizar instruções.  
 **Unidade lógica e Aritmética (ULA):** Realiza operações lógicas e aritméticas.  
@@ -85,7 +111,6 @@ Eis os recursos que o sistema operacional gerencia:
 **Vetor de interrupção:** Guarda o endereço em que está o conjunto de instruções que foram executadas para tratar o evento.
 **Registrador de Status:** Armazena qual foi o tipo de evento ocorrido, pois para ada tipo a sua respectiva rotina de tratamento.
 
-### Exemplos de sistemas operacionais
 #### Sistemas operacionais embarcados: 
 São usados por exemplo para computadores de mão: Celulares, aparelhos de TV, mircro-ondas.
 Estes sistemas possuem caracteriscas dos sistemas operacioanais de tempo real, mas possuem limitações de memória e consumo de energia.
@@ -190,17 +215,6 @@ Os processos em espera sao orgaizados no sistema em listas encadeadas e de acord
 Dois tipos: 
 - **CPU-bound:** Ocupa mais recursos da unidade central de processamento (UCP), passa mais tempo em execução. Facilmente encontrado em aplicações com maior quantidade de operações de cálculo  
 - **I/O-bound:** Passa a maior parte do tempo em estado de espera. Encontrado em aplicações comerciais em que é necessário realizar muitas tarefas de leitura, gravação e processamento.  
-
-## Arquitetura do núcleo (Kernel) 
-**Monolítica:** Módulos executados separadamente mas que compõem um único executável.
-**Camadas:** Devido a complexidade do sistema, é divido em niveis e suas funções só podem ser utilizadas por camadas superiores
-**Máquina Virtual:** Faz o intermédio entre o hardware e o sistema operacional, Oferece todos os serviços do Sistema O. Pode haver várias máquinas virtuais em uma única máquina.
-**Microkernel:** Menor e mais simples, Trata serviços por processos que oferecem funções específicas.  
-Ele tem modos de tratamento de dados em Hardware, Software e Armazenamento  
-
-**Hardware:** Os dados do processo ficam armazenados nos registradores (status, PC e SP)
-**Software:** Há especificação de recursos e suas limitações para que possam ser alocados os processos. Nome, ÍD(identificaçao), Owner, prioridade, data/hora, tempo de processador etc
-**Armazenamento:** Refere-se a area de memória que será alocado o processo para que possa ser executado
 
 ## Estado do processo
 Nos sitemas operacionais multiprogramáveis os processos não devem receber de forma dedicada todos os recursos da máquina.  
