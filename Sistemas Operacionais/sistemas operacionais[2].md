@@ -83,7 +83,9 @@ Além dessas características há também a possibilidade de um usuário determi
 ### Estrutura dos arquivos
 Os arquivos podem ser estruturados de várias formas:  
 ![Fonte: Tanenbaum (2003, p.288) :: estrutura dos arquivos](//imagens%20para%20anexar/Figura-17-Estrutura-de-arquivos-a-Sequeencia-de-byte-nao-estruturada-b-Sequeencia-de.png)
-- **Sequência estruturada de bytes:** O sistema operacional
+- **Sequência estruturada de bytes:** (img a) O sistema operacional não sabe qual é o conteúda do arquivo e tudo o que ele vê são *bytes*. Essa maneira oferece flexibilidade uma vez que os programas de usuários podem dar o nome que quiserem aos arquivos e inserir o conteúdo que quiserem.  
+- **Sequência de registros de comprimento fixo:** (img b) O arquivo é uma sequência de registros de tamanho fixo, cada um com uma estrutura interna. O objetivo é que a operação de leitura retorne um registro e a operação de escrita sobreponha ou anexe um registro.  
+- **Árvore de registros:** (img c) Um arquivo é formado por uma árvore de registros, **não necessariamente do mesmo tamanho, cada um contendo um campo-chave em uma posição fixa do registro. A árvore é ordenada por esse campo-chave para que se busque mais rapidamente. Novos registros podem ser inseridos no arquivo e é o S.O que decide onde colocá-los. Esse tipo é amplamente aplicao em computadores de grande porte, usados ainda para alguns processamentos de dados comerciais.   
 
 ### Tipos de Arquivos
 Diferentes tipos de arquivos são suportados pelos sistemas operacionais.  Os **arquivos regulares** contém informações do usuário e são classificados como:  
@@ -93,6 +95,11 @@ Diferentes tipos de arquivos são suportados pelos sistemas operacionais.  Os **
 Os **arquivos de diretórios** mantem estrutura dos sistemas de arquivos.  
 Já os **arquivos especiais de caracteres** são relacionados a entrada/saída e usados para modelar dispositivos de E/S.  
 Os **arquivos especiais de blocos** são usados para modelas discos.
+
+### Acesso aos arquivos
+Os arquivos podem recuérar informações de diferentes formas, de acordo com sua organização. Os primeiros sistemas operacionais armazenavam os arquivos em fitas magnéticas e seu **acesso era realizado de forma sequencial**. No acesso sequencial os arquivos são lidos sequencialmente a partir do inicio do arquivo, sempre na ordem em que os registros foram gravados.  
+Com a criação dos discos magnéticos surgiu o acesso direto cuja leitura/gravação é feita na sua posição por meio do número do registro. Não existe restrições em relação a ordem em que os registros são lidos ou gravados, sendo sempre necessário especificar o número do registro. O **acesso direto** somente é possivel quando os registros do arquivo são de tamanho fixo, sendo que o mesmo pode ser combinado com o acesso sequencial sendo possível acessar qualquer registro de um arquivo e assim os demais.  
+O **acesso indexado ou por chave**, nele o arquivo deve possuir uma área de índice em que existam ponteiros para os diversos registros. A aplicação que desejar acessar o registro deverá especificar uma chave para que o sistema pesquise na área de índice o ponteiro correspondente, acessando o arquivo diretamente.
 
 ### Espaço de nomes hierárquicos (Filesystem Hierarchy Standard)
 O FHS (Padrão para Sistema de Arquivos), define os principais diretórios e o seu conteúdo em um sistema operacional.
