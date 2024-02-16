@@ -28,8 +28,9 @@ Existem 3 requisitos essenciais para o armazenamento da informação a longo pra
 ```
 
 ## Sistema de arquivos
-Os sistemas de arquivos servem para facilitar a organização de arquivos sob o ponto de vista do armazentamento e de sua identificação.  
-Para que esse gerenciamento aconteça, é preciso que o sistema de arquivos realize operações para criar, excluir ou remover arquivos. Assim como, abrir, ler, gravar, fechar, identificar e reconhecer, obter e modificar arquivos com metadados, ou seja, que fazem referência ao dado, atribuindo características e especificando outras informações sobre o arquivo.  
+Afinal, o que é um arquivo? Um arquivo é a maneira que o sistema operacional permite a leitura e gravação de **dados e arquivos**. Outra definição  é considerar o arquivo como um mecanismo de abstração, oferecendo meios de armazenamento de dados e permitindo a sua leitura posteriormente.    
+Os sistemas de arquivos servem para facilitar a organização de arquivos sob o ponacom metadados, ou seja, que fazem referência ao dado, atribuindo características e especificando outras informações sobre o arquivo.  
+O sistema de arquivos é um exemplo de parte vísivel do sistema operacional já que os usuários manipulam constantemente os arquivos.    
 Organizar esses dados é de extrema importância para que haja o respectivo direcionamento no sistema computacional.  
 Em função do tipo de processo que será acionado, outro fator importante é a **extensão dos arquivos**, pois, para cada uma, será realizado um procedimento de armazenamento de alocação de recursos distinto.
 
@@ -78,6 +79,20 @@ A disponibilização dos possíveis nomes que os arquivos podem assumir, é conh
 **Podem fazer referencia a dados já existentes**  
 O sistema de arquivos identificará um arquivo a partir do seu nome, que é uma sequência de caracteres que podem conter letras maiúsculas, minúsculas, números etc, obedecendo a uma restrição de extensão e tipos de caracteres válidos.  
 Além dessas características há também a possibilidade de um usuário determinar a forma hierárquica a organização dos seus arquivos, como se seuissem uma estrutura em árvore.
+
+### Estrutura dos arquivos
+Os arquivos podem ser estruturados de várias formas:  
+![Fonte: Tanenbaum (2003, p.288) :: estrutura dos arquivos](//imagens%20para%20anexar/Figura-17-Estrutura-de-arquivos-a-Sequeencia-de-byte-nao-estruturada-b-Sequeencia-de.png)
+- **Sequência estruturada de bytes:** O sistema operacional
+
+### Tipos de Arquivos
+Diferentes tipos de arquivos são suportados pelos sistemas operacionais.  Os **arquivos regulares** contém informações do usuário e são classificados como:  
+- **Arquivos ASCII:** São formados por linhas de texto.A grande vantagem deste é que eles podem ser mostrados e impressos como são e podem ser editados com qualquer editor de texto, facilitando a conexão entre a saída de um programa e a entrada de outro.  
+- **Arquivos binários:** Possuem alguma estrutura interna, conhecida pelos programas que os usam.  
+  
+Os **arquivos de diretórios** mantem estrutura dos sistemas de arquivos.  
+Já os **arquivos especiais de caracteres** são relacionados a entrada/saída e usados para modelar dispositivos de E/S.  
+Os **arquivos especiais de blocos** são usados para modelas discos.
 
 ### Espaço de nomes hierárquicos (Filesystem Hierarchy Standard)
 O FHS (Padrão para Sistema de Arquivos), define os principais diretórios e o seu conteúdo em um sistema operacional.
