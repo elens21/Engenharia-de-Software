@@ -59,6 +59,14 @@ Precisamos configurar as permissões necessárias à execução de cada uma dess
 |Renomear|-|Atividade|Delete|
 |Lista|-|Backup|-|
 
+Segundo Tanenbaum (2003), sistemas de arquivos diferentes oferecem operações distintas para armazenar e recuperar informações. As principais operações são:  
+- Create: Cria um arquivo sem dados e define alguns atributos;  
+- Delete: Deleta um arquivo quando ele não é mais necessário, liberando espaço de memória.  
+- - Open: Um processo deve abrir um arquivo antes de usá-lo, permitindo que o sistema busque e coloque na memória principal os atributos e alista de endereços do disco, agilizando o acesso as informações.  
+- Close: Fecha um arquivo e libera espaço na memória
+- Read: Leitura dos dados do arquivo    
+- Write: Grava os dados no arquivo.  
+
 ### Organização de Arquivos
 - Temos a **sequencial** também conhecida como **Não estruturada**, o aceso ao registro é precário pois é necessário a leitura de todos os registros até que seja encontrado o que de fato esta sendo procurado, pois a organização dos arquivos é feito sequencialmente.  
 É a forma mais simples de organização, o arquivo sequencial indexado é formado por um arquivo sequencial e por um índice. Contém 3 áreas distintas: 
@@ -84,8 +92,10 @@ Além dessas características há também a possibilidade de um usuário determi
 Os arquivos podem ser estruturados de várias formas:  
 ![Fonte: Tanenbaum (2003, p.288) :: estrutura dos arquivos](//imagens%20para%20anexar/Figura-17-Estrutura-de-arquivos-a-Sequeencia-de-byte-nao-estruturada-b-Sequeencia-de.png)
 - **Sequência estruturada de bytes:** (img a) O sistema operacional não sabe qual é o conteúda do arquivo e tudo o que ele vê são *bytes*. Essa maneira oferece flexibilidade uma vez que os programas de usuários podem dar o nome que quiserem aos arquivos e inserir o conteúdo que quiserem.  
+Tam
 - **Sequência de registros de comprimento fixo:** (img b) O arquivo é uma sequência de registros de tamanho fixo, cada um com uma estrutura interna. O objetivo é que a operação de leitura retorne um registro e a operação de escrita sobreponha ou anexe um registro.  
-- **Árvore de registros:** (img c) Um arquivo é formado por uma árvore de registros, **não necessariamente do mesmo tamanho, cada um contendo um campo-chave em uma posição fixa do registro. A árvore é ordenada por esse campo-chave para que se busque mais rapidamente. Novos registros podem ser inseridos no arquivo e é o S.O que decide onde colocá-los. Esse tipo é amplamente aplicao em computadores de grande porte, usados ainda para alguns processamentos de dados comerciais.   
+1 registro = 1 bloco de dados de tamanho fixo e com uma certa estrutura interna.  
+- **Árvore de registros:** (img c) Um arquivo é formado por uma árvore de registros, ou seja um arquivo vai ser um conjunto de registros organizados em árvores. **não necessariamente do mesmo tamanho, cada um contendo um campo-chave em uma posição fixa do registro. A árvore é ordenada por esse campo-chave para que se busque mais rapidamente. Novos registros podem ser inseridos no arquivo e é o S.O que decide onde colocá-los. Esse tipo é amplamente aplicao em computadores de grande porte, usados ainda para alguns processamentos de dados comerciais.   
 
 ### Tipos de Arquivos
 Diferentes tipos de arquivos são suportados pelos sistemas operacionais.  Os **arquivos regulares** contém informações do usuário e são classificados como:  
