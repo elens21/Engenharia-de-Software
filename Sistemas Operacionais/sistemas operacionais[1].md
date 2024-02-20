@@ -1,6 +1,9 @@
 # O que é sistema operacional?
 Sempre vai ser algo intermediário entre o software e o hardware.  
 O sistema operacional gerencia o Hardware e o Software, ele faz uma interação entre o usuário e o Hardware, nós não controlamos o Hardware, nós executamos algumas ações, ocorre uma verificação e o sistema operacional assume o controle. Se não existisse o sistema operacional, não conseguiriamos fazer certas ações, como acessar a internet por exemplo.  
+Segundo Tanenbaum, as funções do S.O são:  
+- Estender a máquina (ou máquina virtual)  
+- Gerenciar os recursos  
 Cabe ao sstema operacional servir de interface entre os usuários e os recursos disponpiveis no sistema computacinal.
 - Por exemplo, quando queremos imprimir:  
     1- Clico em um botão, através de uma aplicação;  
@@ -39,6 +42,13 @@ Os modos de acesso aos serviços do núcleo podem ser realiados de duas formas,
 - Modo Kernel: Nesse, o acesso pode ser realizado de modo usuário E de modo com privilégio tota, como o acesso ao disco.  
 Quando um programa é executado o kernel é consultado para saber se o acesso será realizado me modo usuário ou kernel.  
 
+### Estrutura do sistema operacional e suas classificações
+Quando falamos da estrutura do S.O estamos falando da maneira pelo qual o código do sistema é organizado e o inter-relacionamento entre seus diversos componentes pode variar conforme a concepção do projeto.  
+São alguns dos seus principais modelos de arquitetura:
+- Sistemas monoliticos: O sistema operacional é escrito como um conjunto de módulos que são compilados separadamente e depois agrupados em um arquivo executável onde cada procedimento pode ser chamado por outro quando precisar.  
+- Sistema em camadas: Organiza o sistema operacional como uma hierarquia de camadas. Cada camada oferece um conjunto de funções que podem ser utilizadas pelas camadas superiores.  
+- Máquinas Virtuais: Uma máquina Virtual (VM) é similar a uma máquina real. Um nível intermediário é criado entre o sistema operacional e o hardware. Esse ,nível cria várias máquinas virtuais independetes, onde cada qual possui uma cópia virtual do hardware.
+- Modelo Cliente-Servidor: Nesse modelo a ideia é implementar a maior parte das funções em modo usuário. Tudo o que o kernel faz é cuidar da comunicação entre cliente e servidor.
 
 ### Classificação dos sistemas operacionais
 Os sistemas operacionais podem ser classificados em:
@@ -128,7 +138,7 @@ Todos os dados do usuário e aplicativos ficam na nuvem o acesso é via internet
 #### UNIX:
 Sistema portavel, multitarefa  
 
-### Diferenaçs entre Windows e Linux:
+### Diferenaças entre Windows e Linux:
 #### A lincença: 
 Para usar o windows é necessario adquirir a licença da Microsoft que é paga, já no Linux a licença o usuário pode aixar em quantas máquinas quiser.
 #### Acesso ao código-fonte:
