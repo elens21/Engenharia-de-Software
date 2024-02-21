@@ -2,9 +2,9 @@
 Sempre vai ser algo intermediário entre o software e o hardware.  
 O sistema operacional gerencia o Hardware e o Software, ele faz uma interação entre o usuário e o Hardware, nós não controlamos o Hardware, nós executamos algumas ações, ocorre uma verificação e o sistema operacional assume o controle. Se não existisse o sistema operacional, não conseguiriamos fazer certas ações, como acessar a internet por exemplo.  
 Segundo Tanenbaum, as funções do S.O são:  
-- Estender a máquina (ou máquina virtual)  
-- Gerenciar os recursos  
-Cabe ao sstema operacional servir de interface entre os usuários e os recursos disponpiveis no sistema computacinal.
+- Estender a máquina (ou máquina virtual): A função do S.O  como uma máquina estendida/virtual é de esconder do programador a complexidade do hardware, apresentando uma interface amigável.  
+- Gerenciar os recursos: O sistema operacional controla de forma ordenad e compartilhada os recusos do computador.  
+Cabe ao sistema operacional servir de interface entre os usuários e os recursos disponpiveis no sistema computacinal.
 - Por exemplo, quando queremos imprimir:  
     1- Clico em um botão, através de uma aplicação;  
     2- Essa aplicação vai chamar meu sistema operacional;  
@@ -42,7 +42,7 @@ Os modos de acesso aos serviços do núcleo podem ser realiados de duas formas,
 - Modo Kernel: Nesse, o acesso pode ser realizado de modo usuário E de modo com privilégio tota, como o acesso ao disco.  
 Quando um programa é executado o kernel é consultado para saber se o acesso será realizado me modo usuário ou kernel.  
 
-### Estrutura do sistema operacional e suas classificações
+### Estrutura do sistema operacional
 Quando falamos da estrutura do S.O estamos falando da maneira pelo qual o código do sistema é organizado e o inter-relacionamento entre seus diversos componentes pode variar conforme a concepção do projeto.  
 São alguns dos seus principais modelos de arquitetura:
 - **Sistemas monoliticos:** O sistema operacional é escrito como um conjunto de módulos que são compilados separadamente e depois agrupados em um arquivo executável onde cada procedimento pode ser chamado por outro quando precisar.  
@@ -58,12 +58,11 @@ Os sistemas operacionais podem ser classificados em:
 |Multiprogramáveis/multitarefas|
 |Sistemas com múltiplos processadores|
 
-**Monoprogramáveis:** 
-Faziam uma tarefa por vez, enquanto não terminasse uma tarefa, ela não faria outra. Utilizava todos os recursos (processador, memória, periféricos etc) para executar uma única tarefa por vez. Um único usuário pode interagir com o sistema.  
-**Multiprogramáveis:** 
+**Monoprogramáveis:** Referem-se aos primeiros S.O. Faziam uma tarefa por vez, enquanto não terminasse uma tarefa, ela não faria outra. Utilizava todos os recursos (processador, memória, periféricos etc) para executar uma única tarefa por vez. Um único usuário pode interagir com o sistema.  
+**Multiprogramáveis:** Esse sistemas dividem os recusos com os demais programa, com isso a CPU  não fica ociosa. Podem ser classificados pela maneira em que as aplicações são gerenciadas e pelo número de usuários que utilizam o sistema, no caso *monousuarios* ou *multiusuários*. Em relação a maneira em que as aplicações são gerenciadas, podem ser classifcadas como: *sistemas batch*,*de tempo compartilhado*, e de*tempo real*.  
 É permitido que mais de um usuario o utilize. Várias aplicações dividindo os mesmos recursos da máquina.  
 **Múltiplos processadores:** 
-Utilizam duas ou ais *UCPs* (Unidade Central de Processamento) que trabalham em conjunto. Ou seja, além da máquina poder executar vários proramas simultaneamente, aora o seu processamento pode ser dividido entre os processadores. Esse tipo de sistema pode ser subdivido em: Fortemente acoplados e Fracamente acoplados.
+Utilizam duas ou mais *UCPs* (Unidade Central de Processamento) que trabalham em conjunto. Ou seja, além da máquina poder executar vários proramas simultaneamente, agora o seu processamento pode ser dividido entre os processadores. Esse tipo de sistema pode ser subdivido em: Fortemente acoplados e Fracamente acoplados.
     - Fortemente acoplados: Há vários processadores compartilhando uma única memória física, e os dispositivos de entrada e saída são gerenciados por um único sistema operacional. Por exemplo o Unix e o Windows. Existe uma memória compartilhada por todos os processadores.  
     - Fracamente acoplados: Possuem 2 ou mais sistemas interconectados em rede, sendo que cad asistema opera de forma independente com seu próprio sistema operacional e gerenciamento de recursos de processamento (UCPs), memória e dispoitivos. Cada sistema tem sua própria memória individual
 
@@ -147,6 +146,33 @@ No windows o código-fonte é restrito apenas a seus desenvolvedores. Já o do L
 Um dos pontos fortes do Linux é a linha de comando que permite uma administralão efetiva do sistema operacional o Windows també possui linha de comando, mas não é tao efetiva, porque quase todas as confiurações são realizadas pela interface gráfica
 #### Flexibilidade e riidez:
 O Linux permite que o usuário adeque o sistema operacional do jeito que ele desejar em relação ao ambiente gráfico. No Windows as regras são definidas pela Microsoft
+### Características e composição: Unix, Linux
+#### Unix
+É um sistema multiprogramável, multiusuário, suporta varios processadores e implementa memória virtual. Algumas de sus características:  
+- Sua linguagem facilita a compreensão e a portabilidade para outras plataformas.  
+- Pode ser usado em diversas aplicações.  
+- Suporte a protocolo de rede.  
+- Sistema de arquivos com estruturas simples.  
+- Interface simples e uniforme com os dispositivos de entrada/saída  
+  
+O unix se baseia em uma estrutura monolítica, ou sea, as funções são executadas em modo núcle. Sua estrutura é composta por:  
+- Kernel: Núcle  
+- Shell: É o responsável pela conexão dos usuarios com os sistemas operacionais através da linha de comando.  
+- Sistema de arquivos: Responsável pela organização dos dados que são armazenados no Unix.  
+- Aplicações
+
+#### Linux
+Sistema operacional de código fonte aberto. O Linux em si é somente o kernel do SO, para que ele funcione são necessários por exemplo, compiladores do código fonte. Possui a mesma estrutur que o Unix. As versões do Linux são conecidas como distribuição (kernel mais programas). Alguns deles são:  
+- Ubuntu  
+- Fedora  
+- Debian  
+  
+### Componentes do SO
+- Gerenciamento de dispositivos de entrada e saída: É responsável por gerenciar os comandos e interrupções geradas pelos dispositivos, tratamento de erros e fornecimento de uma interface simples e fácil de usar.  
+- Gerenciamento de processos: É responsável por criar, finalizar , escalonar e sincronzar processos e threads.  
+- Gerenciamento de memória: É responsável por gerenciar os arquivos e diretórios (criar, exluir por exemplo)  
+- Gerenciamentod e memória: Gerencia quais partes da memória estão em uso e quais estçao disponiveis, alem de administrar a troca de processos entre memória principal e secundária.  
+
 
 # Processos e Threads
 ## Introdução a processos
