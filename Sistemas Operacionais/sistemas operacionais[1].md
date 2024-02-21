@@ -45,10 +45,10 @@ Quando um programa é executado o kernel é consultado para saber se o acesso se
 ### Estrutura do sistema operacional e suas classificações
 Quando falamos da estrutura do S.O estamos falando da maneira pelo qual o código do sistema é organizado e o inter-relacionamento entre seus diversos componentes pode variar conforme a concepção do projeto.  
 São alguns dos seus principais modelos de arquitetura:
-- Sistemas monoliticos: O sistema operacional é escrito como um conjunto de módulos que são compilados separadamente e depois agrupados em um arquivo executável onde cada procedimento pode ser chamado por outro quando precisar.  
-- Sistema em camadas: Organiza o sistema operacional como uma hierarquia de camadas. Cada camada oferece um conjunto de funções que podem ser utilizadas pelas camadas superiores.  
-- Máquinas Virtuais: Uma máquina Virtual (VM) é similar a uma máquina real. Um nível intermediário é criado entre o sistema operacional e o hardware. Esse ,nível cria várias máquinas virtuais independetes, onde cada qual possui uma cópia virtual do hardware.
-- Modelo Cliente-Servidor: Nesse modelo a ideia é implementar a maior parte das funções em modo usuário. Tudo o que o kernel faz é cuidar da comunicação entre cliente e servidor.
+- **Sistemas monoliticos:** O sistema operacional é escrito como um conjunto de módulos que são compilados separadamente e depois agrupados em um arquivo executável onde cada procedimento pode ser chamado por outro quando precisar.  
+- **Sistema em camadas:** Organiza o sistema operacional como uma hierarquia de camadas. Cada camada oferece um conjunto de funções que podem ser utilizadas pelas camadas superiores.  
+- **Máquinas Virtuais:** Uma máquina Virtual (VM) é similar a uma máquina real. Um nível intermediário é criado entre o sistema operacional e o hardware. Esse ,nível cria várias máquinas virtuais independetes, onde cada qual possui uma cópia virtual do hardware.  
+- **Modelo Cliente-Servidor:** Nesse modelo a ideia é implementar a maior parte das funções em modo usuário. Tudo o que o kernel faz é cuidar da comunicação entre cliente e servidor.  
 
 ### Classificação dos sistemas operacionais
 Os sistemas operacionais podem ser classificados em:
