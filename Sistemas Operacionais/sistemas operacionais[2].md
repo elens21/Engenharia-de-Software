@@ -155,13 +155,14 @@ Ex de estrutura de diretório em nivel único:
     A --- D[Arquivo]
     A --- E[Arquivo]
 ```
-#### Sistemas de Diretórios Hierárquicos:Dois níveis
+#### Sistemas de Diretórios Hierárquicos: Dois níveis e árvore de diretórios
 Com o objetivo de evitar conflitos, foi percebido a importância de dar um diretório privado pra cada usuário. Assim os nomes escolhidos por um usuário não interfeririam nos nomes escolhidos pelo outro, podendo existir arquivos com o mesmo nome em dois ou mais diretórios.
 O primeiro nível destina-se a divisão de contas de usuarios.  
 O outro nível a alocação dos arquivos criados.  
 Ele faz com que arquivos criados por contas de usuários distintos pudessem ter os mesmos nomes pois não estão alocados no mesmo diretório e não causam danos de integridade ou conflitos na localização e acesso aos arquivos.  
 Nessa estrutura, o diretório aponta para a sua respectiva área de alocação de arquivos.  
-Aqui cada usuario tem seu próprio *diretório de arquivos do usuário*.
+Aqui cada usuario tem seu próprio *diretório de arquivos do usuário*.  
+Esse esquema é chamado de diretório em dois niveis.
 ```mermaid
     graph TD
     A["Diretório Raiz"]
@@ -176,9 +177,13 @@ Aqui cada usuario tem seu próprio *diretório de arquivos do usuário*.
 
 ```
 
-#### Sistemas de Diretórios: Árvore
-Aqui cada arquivo no sistema possui um caminho exclusivo. Essa estrutura facilita a organização dos arquivos opara o usuário que pode separar seus arquivos de acordo com suas necessiades, pois permite que ele cria diersos nívelsmde diretórios.
+Dessa forma se faz necessário agrupar esses arquivos segundo as necessidades do usuário. Assim é necesário uma hierarquia geral, ou uma árvore de diretórios (folder tree).para permitir que os usuários tenham tantos diretórios quanto precisem para agrupar os seus arquivos.  
+Essa estrutura facilita a organização dos arquivos opara o usuário que pode separar seus arquivos de acordo com suas necessiades, pois permite que ele cria diersos nívelsmde diretórios.
 
+
+### Nomes de Caminhos dos diretórios
+Quando o ssitema de arquivos é organizado por meio de uma árvore de diretórios, é necessário definir uma forma de especificar o nome dos arquivos. Para isso, são usados dois métodos: **nome de caminho absoluto** e **nome de caminho relativo**.  
+- Nome de caminho absoluto: É formado pelo caminho entre o diretório-raiz e o arquivo
 ## Alocação de Arquivos
 Alocação de arquivos é o método pelo qual os dados são apensados/incorporados/alocados no espaço de armazenamento físico no sistema operacional.
 Para que o SO possa alocar os arquivos, é preciso que realize a gerência dos espaços disponíveis em disco, quanto e quais partes do HD estão disponíveis.  
