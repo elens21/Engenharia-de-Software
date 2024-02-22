@@ -183,7 +183,13 @@ Essa estrutura facilita a organização dos arquivos opara o usuário que pode s
 
 ### Nomes de Caminhos dos diretórios
 Quando o ssitema de arquivos é organizado por meio de uma árvore de diretórios, é necessário definir uma forma de especificar o nome dos arquivos. Para isso, são usados dois métodos: **nome de caminho absoluto** e **nome de caminho relativo**.  
-- Nome de caminho absoluto: É formado pelo caminho entre o diretório-raiz e o arquivo
+- Nome de caminho absoluto: É formado pelo caminho entre o diretório-raiz e o arquivo. Os nomes de caminhos absolutos sempre iniciam no diretório-raiz e são unicos. Como exemplo o caminho:  
+    /usuário/meus_documentos/atividades.txt  
+Siginifica que dentro do diretório-raiz possui um diretório chamado "usuário" e dentro de "usuário" existe um subdiretório chamado "meus_documentos" e dentro do subdiretório "meus_documentos" existe um arquivo chamado "atividades.txt".  
+- Nome de caminho relativo: É usado em conjunto com o conceito de diretório atual ou diretório de trabalho. Dessa forma é possível ser designado pelo usuário um diretório como diretório atual de trabalho em que todos os nomes de caminhos não comecem no diretório-raiz. Por exemplo se o diretório atual for /usuário/meus_documentos/, logo o arquivo cujo caminho absoluto for /usuário/meus_documentos/atividades pode ser referenciado apenas como atividades.
+
+### Sistemas de diretórios do Linux
+No linux o sistema de diretórios é baseado numa estrutura hierárquica e os diretórios são implementados por meio de arquivos. 
 ## Alocação de Arquivos
 Alocação de arquivos é o método pelo qual os dados são apensados/incorporados/alocados no espaço de armazenamento físico no sistema operacional.
 Para que o SO possa alocar os arquivos, é preciso que realize a gerência dos espaços disponíveis em disco, quanto e quais partes do HD estão disponíveis.  
