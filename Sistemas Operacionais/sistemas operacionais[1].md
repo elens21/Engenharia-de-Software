@@ -177,7 +177,8 @@ Sistema operacional de código fonte aberto. O Linux em si é somente o kernel d
 # Processos e Threads
 ## Introdução a processos
 O sistema operacional é composto basicamente por um conjunto de rotinas que conhecemos como núcleo do sistema (Kernel). O Kernel realiza o controle e tratamento de interrupções e exceções, criar e eliminar processos e threads.
-Para a realização dessas várias tarefas, naturalmente o sistem operacional precisará do auxílio de mecanismos de controle para gerenciar essas operações, uma delas é o **system call**.
+Para a realização dessas várias tarefas, naturalmente o sistem operacional precisará do auxílio de mecanismos de controle para gerenciar essas operações, uma delas é o **system call**.  
+Nos computadores atuais, o processador funciona como uma "linha de produção".  
 
 - A ideia principal é que um processo constitui uma atividade. 
 - O processo tem uma entrada, uma saída e um estado e um programa.
@@ -212,7 +213,7 @@ Programa é uma sequência de instruções codificadas (escritas) a serem execut
 Sequência de instruções sem atividade própria.  
 O mesmo programa pode ser excutado várias vezes ao mesmo tempo, e mesmo se tratando do mesmo programa eu preciso ter um processo pra cada execução desse programa;
 ### Lista de definições: Processo
-Processo é um conjunto de dados que vai acompanhar a execução de um programa. 
+Processo é um conjunto de dados que vai acompanhar a execução de um programa. Podemos considerar que um processo é uma atividade que contém: Um programa, uma saída, uma entrada e um estado.  
 
 ---
 ```mermaid
@@ -245,44 +246,67 @@ Mas ai imagine que enquanto o cozinheiro estpa fazendo isso, o filho é mordido 
 Assim o cozinheiro alterna do processo(Cozimento) para outro, de prioridade mais alta (cuidar do filho), sendo que cada um desses processos tem um programa diferente (receita X livro).  
 Os processos em espera sao orgaizados no sistema em listas encadeadas e de acordo com o tipo de evento ocorrido. Quando recebem os recursos necessários, mudam para o estado de pronto.
 
-## PCB (Process Control Block)
+## Threads
+Thread é um fluxo de controle (execução) dentro do processo. Um processo pode contar um ou vários threads que compartilham os recursos do processo. O uso de threads acelera a execução de uma aplicação. 
 
 ## Classificação de processos
 Dois tipos: 
 - **CPU-bound:** Ocupa mais recursos da unidade central de processamento (UCP), passa mais tempo em execução. Facilmente encontrado em aplicações com maior quantidade de operações de cálculo  
-- **I/O-bound:** Passa a maior parte do tempo em estado de espera. Encontrado em aplicações comerciais em que é necessário realizar muitas tarefas de leitura, gravação e processamento.  
-
-## Estado do processo
-Nos sitemas operacionais multiprogramáveis os processos não devem receber de forma dedicada todos os recursos da máquina.  
-Com isso, or processos são dividos em estados: execução **(running)**, pronto **(ready)**, e espera **(wait)**.  
-O processo está em **running** enquanto é processao pela UCP (**Unidade Central de Processamento**), sendo que os processos revezam o tempo de processamento controlado pelo sistema operacional.  
-Quando o processo se encontra no estado de **ready**, quer dizer que o processo está aguardando para ser processado.  
-Já o estado de **wait** acontece quando o processo aguarda um recurso para continuar o processamento, ou o tratamento de um evento para que possa prosseguir.  
-- Os processos em **wait** são organizados no sistema em lista encadeas e de acordo com o tipo de evento ocorrido. Quando recebem os recursos necessários, mudam para o estado de **ready**.
+- **I/O-bound:** Passa a maior parte do tempo em estado de espera. Encontrado em aplicações comerciais em que é necessário realizar muitas tarefas de leitura, gravação e processamento.
+ 
 ## Criação de processo e finalização de processo
+Existem quatro eventos que fazem com que um processo seja criado:  
+- Inicio do sistema: Quando o SO é inicializado são criados vários processos. Existem os de primeiro plano que interagem com os usuarios e suas aplicações ou eja necessita de interação direta com o user, e os de segundo plano que possuem uma função especíica, como um processo par atualizar e-mails quando alguma mensagem chegar a caixa de entrada, ou seja são os que não necessitam necessariamente dessa interação.  
+- Execução de uma chamada ao sistema de criação por um processo em execução: Quando opr exemplo um processo está fazendo download, ele aciona um outro processo para ajuda-lo Enquanto um processo faz o download o outro está armazenando os dados em disco.  
+- Uma requisição do usuario para criar um novo processo: Quando o usuário digitaumum cmando ou solicita a abertuara e um icone pra abrir um arquivo, por exemplo clicar no icone na area de trabalhopra abrir, ou abrir um arquivo diretamente no terminal.  
+- Inicio de um job em lote: Esses processos sao criados em computadores de grande porte, os mainframes. 
+
+Enquanto no término dos processos, os processos podem ser finalizados nas seguintes condições:  
+- Saída normal(voluntária): Ocorre quando op procsso para de executar por ter acabado seu trabalho.  
+- Saída por erro(voluntária): Ocorre quando o processo tent acessar um arquivo que não existe e é emitida uma chamada de saída do sistema.  
+- Erro fatal(involuntário): Quando ocorre um errod e programa.  
+- Cancelamento por um outro processo: Ocorre quando um processo que possui permissao emite uma chamada ao sistema para cancelar outro processo.
 
 ```mermaid
     graph TD
     A{Processos}
     A --> |Criação de processo| D[Inicio do sistema;
-    Processo em execução;
+    Processo em execução chamando outro;
     Requisição do usuário;
-    Tarefa em lote;]
-    A --> |Finalização de processo| E["Saída normal(Voluntária)";
+    /job em lote;]
+    A --> |Finalização de processo| E["Saída normal";
     Saída por erro;
     Erro fatal;
-    Solicitação de outro processo;]
+    Solicitação de cancelamento por outro processo;]
 ```
 ## Hierarquia de processos
-É muito comum que um processo seja criado por outro processo que vai criar outros processos e assim em diante, por isso é essencial que o SO administre uma Hierarquia de processos.  
+É muito comum que um processo seja criado por outro processo que vai criar outros processos e assim em diante ficando associados, por isso é essencial que o SO administre uma Hierarquia de processos.  
 ```mermaid
     graph TD
     A[Processo Pai]
     A --- B[ Processo Filho]
     A --- C[ Processo Filho]
     A --- D[ Processo Filho]
+    C --- E[ Processo Filho]
 ```
 
+## Estado do processo
+Nos sitemas operacionais multiprogramáveis os processos não devem receber de forma dedicada todos os recursos da máquina.  
+Com isso, or processos são dividos em estados:  
+- Execução **(running)**: Quando está sendo processado pela CPU.(**Unidade Central de Processamento**)   
+- Pronto **(ready)**: Quando possui todas as condições necessárias para ser executado e está aguardando.  
+- Espera ou bloqueado **(wait)**: Quando aguarda por um evento externo ou por um recurso para processar.  
+ 
+- Os processos em **wait** são organizados no sistema em lista encadeas e de acordo com o tipo de evento ocorrido. Quando recebem os recursos necessários, mudam para o estado de **ready**.
+
+## Implementação de Processos
+Para implementar o modelo de processos, o sistema operacional mantém uma tabela que contém informações sobre: o estado do processo, seu contador de programa, o ponteirod a pilha, a alocação de memória, o status dos arquivos abertos, entre outros que permtiem que o processo reinicie do ponto em que ele parou.
+
+## Implementação de Threads
+Pode ocorrer no espaço do usuario, no núcleo do sistema, ou em ambos.  
+- Thread de usuario: É implementada pela aplicação do usuario e o sistema operacional nao sabe de sua existência.  
+- Thread do nucleo: Implementada e gerenciada pelo nucleo do SO.  
+- Threads hibridas: Implementadas tanto no espaço do usuário como no nucleo do SO.
 ## Comunicação entre processos e problemas clássicos de comunicação entre processos
 Alguns exemplos vão girar em torno do seguinte exemplo.  
 Imagine que você é o TI responsavel por uma rede de clinicas médicas. Temos a tarefa de fazer com que seja localizado o endereço de solicitação de informações online do sistema de gestão da clínica médica e informar a partir disso, os consultórios e clínicas mais próximas do usuário de acordo com o seu plano de saúde, além de oferecer o serviço de discagem direta para a realização do aendamento.
