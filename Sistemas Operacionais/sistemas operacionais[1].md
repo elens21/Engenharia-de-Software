@@ -301,9 +301,11 @@ Com isso, or processos são dividos em estados:
 - Os processos em **wait** são organizados no sistema em lista encadeas e de acordo com o tipo de evento ocorrido. Quando recebem os recursos necessários, mudam para o estado de **ready**.
 
 ## Implementação de Processos
+(implementação = pôr em prática, assegurar a realização de alguma coisa).  
 Para implementar o modelo de processos, o sistema operacional mantém uma tabela que contém informações sobre: o estado do processo, seu contador de programa, o ponteirod a pilha, a alocação de memória, o status dos arquivos abertos, entre outros que permtiem que o processo reinicie do ponto em que ele parou.
 
 ## Implementação de Threads
+(implementação = pôr em prática, assegurar a realização de alguma coisa).  
 Pode ocorrer no espaço do usuario, no núcleo do sistema, ou em ambos.  
 - Thread de usuario: É implementada pela aplicação do usuario e o sistema operacional nao sabe de sua existência.  
 - Thread do nucleo: Implementada e gerenciada pelo nucleo do SO.  
