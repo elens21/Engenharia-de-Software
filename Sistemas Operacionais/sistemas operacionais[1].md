@@ -383,9 +383,26 @@ Ou seja, um semáforo com valor iual a 1 significa que nenhum recurso está util
 Assim o semáforo faz com que não ocorra o erro de não ter nada acontecendo, e nem de ficar em um loop infinito
 
 
-### Escalonamento e threads
---> Considete que você precis realizar um teste de eficiência do sistema operacional quando o sistema de gestão integrada está em execução, e de forma a identificar o comportamento da gerência de processos e como está acontecendo o escalonamento circular por prioridades. Faça isso em simulado de S.O.  
-O escalonamento é a realização da distribuição do acesso aos recursos presentes no sistema entre os processos ativos, de uma maneira onde todos os processos que estejam na fila possam utilizar a CPU.
+### Escalonamento de processos
+Em um sistema operacional, vários processos compartilham recursos ao mesmo tempo, e quem faz a escolha de qual processo dever ser executado é o escalonador de processos.  
+O escalonador de processos é responsável pela escolha de qual processo executar, Essa escolha é feita por meio da aplicação de algoritmos ou políticas de escalonamento, para otimizar a utilização do processador, definindo o processo que ocupará a CPU. Além de escolher o processo a ser executado, o escalonador deve prezar pelos critérios e pelos objetivos.
+
+Algumas das principais situações que levam ao escalonamento:  
+- A criação de um novo processo: É necessario escolher entre executar o processo pai ou o processo filho.  
+- Término de um processo: Quando um processo é finalizado, é preciso escolher outro para ser executado.  
+- Quando um processo é bloqueado e está aguardando uma entrada/saida, é necessário escolher outro processo.  
+- Interrupção de entrada/saída: Se a interrupção for gerada por um dispostivo que finalizou a execução, o processo passará de "bloqueado"(wait) para "pronto"(ready) e o escalonador deverá escolher entre continuar executando o processo atual ou o que acabou de ficar pronto.  
+- Interrupções de relógio: A cada interrupção do hardware de relógio pode haver um escalonamento de processos.
+
+#### Ambientes de escalonamento (Ambientes em que os escalonamentos acontecem)
+- Lote: Como não existem usuários aguardando uma resposta, tanto algoritmos preemptivos como não-preemptivos são aceitáveis para sistemas em lote.  
+- Botão: Nos sistemas interativos, a preempção se faz necessário para que outros processos tenham acesso a CPU.  
+- Tempo Real: Os processos ao utilizarem a CPU fazem seu trabalho rapidamente e bloqueiam, dando oportunidade para outros procesos executarem.
+
+### Escalonamento de Threads
+O escalonamento de threads depende se elas estão no espaço do usuário ou do núcleo.  
+- Threads de usuário: O núcleo não sabe de sua existência e o S.O escolhe um processo "A" para executar, dando a ele o controle de seu quantum. O escalonador da thread A escolhe qual thread deve executar, por meio dos algoritmos de escalonamento.  
+- Threads de nucleo: O S.O escolhe uma thread para executar até um quantum máximo e caso o quantum seja excedido, o thread será suspenso.  
 
 #### Critérios de escalonamento
 Alguns critérios de escalonamento são necessários e determinados de acordo com as caracteristicas do sistema operacional. Dentre os critérios podemos elencar a análise de eficiência e utilização do processador.  

@@ -79,6 +79,7 @@ Ex: No reistro a seguir em que os dados se interliam a partir de informações i
 - Temos também a **Relativa ou Direta**, refere-se a locação dinâmica e aleatória do arquivo. Pos esse motivo pode ser localizado a partir de uma chave de acesso e do local em que está armazenado.
 
 ### Nome do arquivo
+Quando um processo cria um arquivo é atribuído a ele um nome, e quando o mesmo é encerrado, o arquivo continua existindo.
 O nome do arquivo será limitado ao padrão e às regras estabelecidas pelo sistema de arquivos.  
 A disponibilização dos possíveis nomes que os arquivos podem assumir, é conhecida como **espaços de nomes**.  
 **DESTACADO**:  
@@ -91,8 +92,7 @@ Além dessas características há também a possibilidade de um usuário determi
 ### Estrutura dos arquivos
 Os arquivos podem ser estruturados de várias formas:  
 ![Fonte: Tanenbaum (2003, p.288) :: estrutura dos arquivos](//imagens%20para%20anexar/Figura-17-Estrutura-de-arquivos-a-Sequeencia-de-byte-nao-estruturada-b-Sequeencia-de.png)
-- **Sequência estruturada de bytes:** (img a) O sistema operacional não sabe qual é o conteúda do arquivo e tudo o que ele vê são *bytes*. Essa maneira oferece flexibilidade uma vez que os programas de usuários podem dar o nome que quiserem aos arquivos e inserir o conteúdo que quiserem.  
-Tam
+- **Sequência estruturada de bytes:** (img a) O sistema operacional não sabe qual é o conteúdo do arquivo e tudo o que ele vê são *bytes*. Essa maneira oferece flexibilidade uma vez que os programas de usuários podem dar o nome que quiserem aos arquivos e inserir o conteúdo que quiserem.  
 - **Sequência de registros de comprimento fixo:** (img b) O arquivo é uma sequência de registros de tamanho fixo, cada um com uma estrutura interna. O objetivo é que a operação de leitura retorne um registro e a operação de escrita sobreponha ou anexe um registro.  
 1 registro = 1 bloco de dados de tamanho fixo e com uma certa estrutura interna.  
 - **Árvore de registros:** (img c) Um arquivo é formado por uma árvore de registros, ou seja um arquivo vai ser um conjunto de registros organizados em árvores. **não necessariamente do mesmo tamanho, cada um contendo um campo-chave em uma posição fixa do registro. A árvore é ordenada por esse campo-chave para que se busque mais rapidamente. Novos registros podem ser inseridos no arquivo e é o S.O que decide onde colocá-los. Esse tipo é amplamente aplicao em computadores de grande porte, usados ainda para alguns processamentos de dados comerciais.   
