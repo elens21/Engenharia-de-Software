@@ -212,6 +212,7 @@ Precisamos apresentar um mode de implementar um sistema de arquivos de rede, que
 Para realizar essa tarefa, vocÊ precisa apresentar um modo de implementação de um sistema de arquivos de rede que esteja de acordo com as especificações de um dos fornecedores do sistema operacional e explicar o procedimento.
 
 ## Implementação de sistemas de arquivos
+O sistema operacional precisa controlar quais as áreas ou bloos no disco estão livres quando um arquivo é criado.    
 Envolve basicamente criar para cada arquivo o seu respectivo descritor.  
 **Descritor de arquivos:** É um registro no qual são mantidas as informações a respeito do arquivo.  
 Essas informações incluem os seus atributos, além de outros dados que não são visíveis aos usuários mas que são necessários para que o S.O implemente as operações sobre arquivos.  
@@ -221,7 +222,8 @@ Para tornar mais rápido o acesso aos arquivps, o sistema de arquivos mantém na
 Quando um arquivo entra em uso, o seu descritor é copiado do disco para a memória.  
 Algumas formas de fazer essa implementação:  
 ### Alocação contígua
-Os dados são dispostos de maneira sequencial sore  um conjunto de blocos consecutivos no disco, sem "buracos" entre os blocos. Assim a localização do conteúdo do arquivo no disco é definida pelo endereço do seu primeiro bloco.. O sistema localiza um arquivo através do endereço do primeiro bloco e da sua extensão em blocos.  
+É o método mais simples, em que os arquivos são armazenados de forma sequencial no disco. Assim se você tem um disco rígido com blocos de tamanho 1MB e um arquivo cujo tamanho seja 40MB, você utilizará 40 blocos sequenciais de disco para alocar o arquivo, e assim por diante.  
+Os dados são dispostos de maneira sequencial sobre  um conjunto de blocos consecutivos no disco, sem "buracos" entre os blocos. Assim a localização do conteúdo do arquivo no disco é definida pelo endereço do seu primeiro bloco.. O sistema localiza um arquivo através do endereço do primeiro bloco e da sua extensão em blocos.  
 
 
 **##########IMAGEM PG 310**  
@@ -231,7 +233,7 @@ Por exemplo, caso um bloco do disco aresente defeito e não permita a leitura do
 Porém por outro lado, uma das desvantagens é a sua baixa flexibilidade, pois o tamanho máximo de cada arquivo precosa ser conhecido no momento de sua criação. No exemplo acima por exemplo, o arquivo *relat.pdf* não pode ser aumentado de tamanho pois não há blocos livres imediatamente apóes ele. Para pode aumentar o tamanho desse arquivo ele teria de ser movido, ou o arquivo seguinte a ele (*instruc.txt*), para liberar os blocos necessários.
 
 ### Alocação por Lista Encadeada:
-Organiza os mesmos como um conjunto de blocos ligados logicamente no disco, independentemente de sua localização física. Cada bloco contem um ponteiro para o bloco seguinte no arquivo.  
+Consiste em organizar os mesmos como um conjunto de blocos ligados logicamente no disco, independete de sua localização física. Cada bloco contem um ponteiro para o bloco seguinte no arquivo.  
 
 ### Alocação por Lista Encadeada usando uma tabela na memória
 Cada palavra de ponteiro de cada bloco de disco é inserida em uma tabela na memória principal, chamada de FAT (File Allocation Table)
