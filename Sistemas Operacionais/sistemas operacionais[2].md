@@ -99,17 +99,27 @@ Os arquivos podem ser estruturados de várias formas:
 
 ### Tipos de Arquivos
 Diferentes tipos de arquivos são suportados pelos sistemas operacionais.  Os **arquivos regulares** contém informações do usuário e são classificados como:  
-- **Arquivos ASCII:** São formados por linhas de texto.A grande vantagem deste é que eles podem ser mostrados e impressos como são e podem ser editados com qualquer editor de texto, facilitando a conexão entre a saída de um programa e a entrada de outro.  
-- **Arquivos binários:** Possuem alguma estrutura interna, conhecida pelos programas que os usam.  
+- *Arquivos ASCII:* São formados por linhas de texto.A grande vantagem deste é que eles podem ser mostrados e impressos como são e podem ser editados com qualquer editor de texto, facilitando a conexão entre a saída de um programa e a entrada de outro.  
+- *Arquivos binários:* Possuem alguma estrutura interna, conhecida pelos programas que os usam.  
   
-Os **arquivos de diretórios** mantem estrutura dos sistemas de arquivos.  
-Já os **arquivos especiais de caracteres** são relacionados a entrada/saída e usados para modelar dispositivos de E/S.  
+Já os **arquivos de diretórios** mantem estrutura dos sistemas de arquivos.  
+Enquanto os **arquivos especiais de caracteres** são relacionados a entrada/saída e usados para modelar dispositivos de E/S como terminais, impressoras, rede.  
 Os **arquivos especiais de blocos** são usados para modelas discos.
 
 ### Acesso aos arquivos
-Os arquivos podem recuérar informações de diferentes formas, de acordo com sua organização. Os primeiros sistemas operacionais armazenavam os arquivos em fitas magnéticas e seu **acesso era realizado de forma sequencial**. No acesso sequencial os arquivos são lidos sequencialmente a partir do inicio do arquivo, sempre na ordem em que os registros foram gravados.  
-Com a criação dos discos magnéticos surgiu o acesso direto cuja leitura/gravação é feita na sua posição por meio do número do registro. Não existe restrições em relação a ordem em que os registros são lidos ou gravados, sendo sempre necessário especificar o número do registro. O **acesso direto** somente é possivel quando os registros do arquivo são de tamanho fixo, sendo que o mesmo pode ser combinado com o acesso sequencial sendo possível acessar qualquer registro de um arquivo e assim os demais.  
+Os arquivos podem recuperar informações de diferentes formas, de acordo com sua organização. Os primeiros sistemas operacionais armazenavam os arquivos em fitas magnéticas e seu **acesso era realizado de forma sequencial**. No acesso sequencial os arquivos são lidos sequencialmente a partir do inicio do arquivo, sempre na ordem em que os registros foram gravados.  
+Com a criação dos discos magnéticos surgiu o **acesso direto** cuja leitura/gravação é feita na sua posição por meio do número do registro. Não existe restrições em relação a ordem em que os registros são lidos ou gravados, sendo sempre necessário especificar o número do registro. O **acesso direto** somente é possivel quando os registros do arquivo são de tamanho fixo, sendo que o mesmo pode ser combinado com o acesso sequencial sendo possível acessar qualquer registro de um arquivo e assim acessar os demais.  
 O **acesso indexado ou por chave**, nele o arquivo deve possuir uma área de índice em que existam ponteiros para os diversos registros. A aplicação que desejar acessar o registro deverá especificar uma chave para que o sistema pesquise na área de índice o ponteiro correspondente, acessando o arquivo diretamente.
+
+### Atributos dos arquivos
+**Tamanho:** Especifica o tamanho a quantidade de caracteres ou bytes do arquivo.  
+**Proteção:** Específica padrões de segurança de acesso aos arquivos.  
+**Dono/Proprietário/Usuário:** Estabelece quem criou ou seja, associa o usuário a conta.  
+**Criação:** Delimita data e hora da criação do arquivo para que a partir disso, facilite inclusive a busca e visualização por arquivo.  
+**Backup:** Disponibiliza data e hora da última atualização.  
+**OrGanização:** Indica qual é alógica e a hierarquia utilziada para armazenar os arquivos nos respectivos diretórios.  
+Além das características de atributos de arquivos, precisamos compreender como é a estrutura dos diretórios.  
+Existe a localização de arquivos em estruturas de diretórios de nível único e com dois níveis. 
 
 ### Espaço de nomes hierárquicos (Filesystem Hierarchy Standard)
 O FHS (Padrão para Sistema de Arquivos), define os principais diretórios e o seu conteúdo em um sistema operacional.
@@ -124,25 +134,17 @@ O FHS (Padrão para Sistema de Arquivos), define os principais diretórios e o s
 ### Solução do contexto
 Podemos tentar utilziar o software **Minitool Partition Recovery** para restaurar os padrões deteriorados dos sistemas de arquivos.
 
-### Estrutura dos Diretórios
-A etrutura de diretórios é como o sistma organiza logicamente os diversos arquivos contidos em um disco.  
+## Sistemas de Diretórios
+A estrutura de diretórios é como o sistema organiza logicamente os diversos arquivos contidos em um disco.  
 O diretório é uma estrutura de dados que contém entradas associadas aos arquivos em que cada entrada armazena informações com localização física, nome, organização e demais atributos.  
-Quando um arquivo é aberto o S.O procura sua entrada na estrutura de diretórios, armazenando as informações sobre atributos e localização do arquivo em uma taela mantida na memória principal.  
+Quando um arquivo é aberto o S.O procura sua entrada na estrutura de diretórios, armazenando as informações sobre atributos e localização do arquivo em uma tabela mantida na memória principal.  
 **Essa tabela vai ficar mantida na minha memória principal**
 Pois eu vou precisar trabalhar com os requisitos do meu sistema. Essa tabela contém todos os arquivos abertos, sendo fundamental para aumentar o desempenho das operações com arquivos.  
 É importante que ao término do uso de arquivos esses sejam fechados, ou seja, que se libere o  espaço na tabela de arquivos abertos.
 
-### Atributos dos arquivos
-**Tamanho:** Especifica o tamanho a quantidade de caracteres ou bytes do arquivo.  
-**Proteção:** Específica padrões de segurança de acesso aos arquivos.  
-**Dono/Proprietário/Usuário:** Estabelece quem criou ou seja, associa o usuário a conta.  
-**Criação:** Delimita data e hora da criação do arquivo para que a partir disso, facilite inclusive a busca e visualização por arquivo.  
-**Backup:** Disponibiliza data e hora da última atualização.  
-**OrGanização:** Indica qual é alógica e a hierarquia utilziada para armazenar os arquivos nos respectivos diretórios.  
-Além das características de atributos de arquivos, precisamos compreender como é a estrutura dos diretórios.  
-Existe a localização de arquivos em estruturas de diretórios de nível único e com dois níveis.  
-#### Sistemas de Diretórios: nível único
-Também conhecida como *single level directory*, tem muitas limitações. Por exemplo os usuários não podem criar arquivos com o mesmo nome para evitar conflitos de acesso, pois os arquivos recebem todas as características destacadas e são alocadas par armazenamento.  
+ 
+#### Sistemas de Diretórios: Nível único
+Também conhecida como *single level directory*, tem muitas limitações. É uma forma simples de sistema de sistema de diretório, é manter um diretório contendo todos os arquivos, esse diretório será chamado de diretório raiz. Era utilizado nos primeiros computadores pessoais pois eles continham apenas um usuário. Por exemplo o usuário não pode criar arquivos com o mesmo nome para evitar conflitos de acesso, pois os arquivos recebem todas as características destacadas e são alocadas par armazenamento.  
 Nessa todos os arquivos estão contidos no mesmo diretório.
 Ex de estrutura de diretório em nivel único:
 ```mermaid
@@ -153,12 +155,26 @@ Ex de estrutura de diretório em nivel único:
     A --- D[Arquivo]
     A --- E[Arquivo]
 ```
-#### Sistemas de Diretórios: Dois níveis
+#### Sistemas de Diretórios Hierárquicos: Dois níveis
+Com o objetivo de evitar conflitos, foi percebido a importância de dar um diretório privado pra cada usuário. Assim os nomes escolhidos por um usuário não interfeririam nos nomes escolhidos pelo outro, podendo existir arquivos com o mesmo nome em dois ou mais diretórios.
 O primeiro nível destina-se a divisão de contas de usuarios.  
 O outro nível a alocação dos arquivos criados.  
 Ele faz com que arquivos criados por contas de usuários distintos pudessem ter os mesmos nomes pois não estão alocados no mesmo diretório e não causam danos de integridade ou conflitos na localização e acesso aos arquivos.  
 Nessa estrutura, o diretório aponta para a sua respectiva área de alocação de arquivos.  
 Aqui cada usuario tem seu próprio *diretório de arquivos do usuário*.
+```mermaid
+    graph TD
+    A["Diretório Raiz"]
+    A --- B ["Diretório de usuário 1"]
+    A --- C["Diretório de usuário 2"]
+    A --- D["Diretório de usuário 3"]
+    B --- E["Arquivo 1"]
+    B --- F["Arquivo 2"]
+    C --- G["Arquivo 1"]
+    D --- H["Arquivo 1"]
+    D --- I["Arquivo 3"]
+
+```
 
 #### Sistemas de Diretórios: Árvore
 Aqui cada arquivo no sistema possui um caminho exclusivo. Essa estrutura facilita a organização dos arquivos opara o usuário que pode separar seus arquivos de acordo com suas necessiades, pois permite que ele cria diersos nívelsmde diretórios.
