@@ -248,6 +248,7 @@ Os processos em espera sao orgaizados no sistema em listas encadeadas e de acord
 
 ## Threads
 Thread é um fluxo de controle (execução) dentro do processo. Um processo pode contar um ou vários threads que compartilham os recursos do processo. O uso de threads acelera a execução de uma aplicação. 
+Thread é uma sequência de instruções que faz parte de um processo.
 
 ## Classificação de processos
 Dois tipos: 
