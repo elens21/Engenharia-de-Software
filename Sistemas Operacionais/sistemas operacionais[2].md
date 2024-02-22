@@ -155,7 +155,7 @@ Ex de estrutura de diretório em nivel único:
     A --- D[Arquivo]
     A --- E[Arquivo]
 ```
-#### Sistemas de Diretórios Hierárquicos: Dois níveis
+#### Sistemas de Diretórios Hierárquicos:Dois níveis
 Com o objetivo de evitar conflitos, foi percebido a importância de dar um diretório privado pra cada usuário. Assim os nomes escolhidos por um usuário não interfeririam nos nomes escolhidos pelo outro, podendo existir arquivos com o mesmo nome em dois ou mais diretórios.
 O primeiro nível destina-se a divisão de contas de usuarios.  
 O outro nível a alocação dos arquivos criados.  
