@@ -309,24 +309,57 @@ Pode ocorrer no espaço do usuario, no núcleo do sistema, ou em ambos.
 - Threads hibridas: Implementadas tanto no espaço do usuário como no nucleo do SO.
 ## Comunicação entre processos e problemas clássicos de comunicação entre processos
 Alguns exemplos vão girar em torno do seguinte exemplo.  
-Imagine que você é o TI responsavel por uma rede de clinicas médicas. Temos a tarefa de fazer com que seja localizado o endereço de solicitação de informações online do sistema de gestão da clínica médica e informar a partir disso, os consultórios e clínicas mais próximas do usuário de acordo com o seu plano de saúde, além de oferecer o serviço de discagem direta para a realização do aendamento.
+Imagine que você é o TI responsavel por uma rede de clinicas médicas. Temos a tarefa de fazer com que seja localizado o endereço de solicitação de informações online do sistema de gestão da clínica médica e informar a partir disso, os consultórios e clínicas mais próximas do usuário de acordo com o seu plano de saúde, além de oferecer o serviço de discagem direta para a realização do agendamento.
+
 ## Comunicação entre Sistema Operacional e usuário
 O S.O se comunica com o usuário de três formas: através de *procedimentos prórpios do sistema*, por meio da *interação com os aplicativos* ou, ainda, através das *linguagens de comando*.  
-Cada um deles tem o seur espectivo *acesso e armazenamento de dados reservados em memória* e se um arquivo for compartilhado por exemplo, será preciso arantir a veracidade e precisão dessas informações.  
+Cada um deles tem o seur espectivo *acesso e armazenamento de dados reservados em memória* e se um arquivo for compartilhado por exemplo, será preciso garantir a veracidade e precisão dessas informações.  
 Por isso, o acesso as informações deve estabelecer qual é o tipo de comunicação que está acontecendo e se é em modo usuário ou em modo kernel.  
 **Modo usuário:** Apenas instruções chamadas não privilegiadas poderão ser executadas e por isso uma quantidade menor de intruções a executar.  
 --> Informações não privilegiadas: São aquelas que não oferecem risco ao sistema, e as privilegiadas são as que podem interferir no funcionamento do kernel.  
 **Modo Kernel:** O sistema operacional tem acesso irrestrito às intruções do processador
 
-
-Então como trabalhar com informações, como no exemplo, dar informações do bairro, ver se tem clinicas, preços, disponibildiade, discagem direta etc. Tudo isso por si só já é muita coisa, mas imagine que estamos falando não só de 1 usuário mas sim de vários ao memso tempo, como fazer a administração disso?
-### Sincronização de leitura e gravação de processos
-A troca de informações para operações de gravação e leitura entre processos concorrentes, em que há o compartilhamento do buffer, que armazenará temporariamente as informações para que sejam acessadas de forma mais rápida para o processamento.  
-A **gravação** desses dados ocorre apenas se o buffer estiver vazio, assim como a **leitura** dos dados só acontece se houver dados para leitura.
+## Condições de Disputa ou Condições de Corrida/Sincronizção de leitura e gravação de processos
+Refere-se a troca de informações para operações de gravação e leitura entre processos concorrentes, em que há o compartilhamento do buffer, que armazenará temporariamente as informações para que sejam acessadas de forma mais rápida para o processamento.  
+A **gravação** desses dados ocorre apenas se o buffer estiver vazio, assim como a **leitura** dos dados só acontece se houver dados para leitura.  
 --> Buffer: É uma área de armazenamento temporário que armazena dados enquanto eles estão sendo transferidos entre diferentes partes do sistema.  
 Para realizar a sincronização entre os processos, são acionados o que chamamos de mecanismos de sincronização. Esses visam garantir a integridade e confiabilidade das ações de sistema.  
 O *Comando FORK* tem por função realizar uma chamada do processo que está no buffer para ser executado e, a partir da sua identificação, o associa ao seu subprocesso, ou seja o processo filho. Fork também assume a função de acompanhamento de execução desse processo.  
-Assim como FORK cria processos, o comando *JOIN* tem o objetivo e sincronizar os processos criados pelo FORK.
+Assim como FORK cria processos, o comando *JOIN* tem o objetivo e sincronizar os processos criados pelo FORK.  
+Condições de disputa ou condiçoes de corrida ocorrem quando dois ou mais processos estão lendo ou escrevendo algum dado compartilhado e o resutlado final depende das informações de quem e quando executa, podendo gerar dados inconsistentes.  
+--> **Região Crítica**: Trecho de programa de cada processo que usam um recurso compartilhado e são executados um por vez.
+### Regiões críticas
+Para evitar as condições de disputa é necessáriod efinir quais maneiras que impeçam que mais de um processo leia e escreva ao msmo tempo na memória compartilhada.  
+Para termos uma boa solução, temos que satisfazer 4 soluções:  
+- Nunca dois ou mais processos podem estar simultaneamente em suas regiões críticas  
+- Nada pode ser afirmado sobre o numero e a velocidade de CPUs  
+- Nenhum processo executando em uma regiao crítca pode bloquear outros processos.  
+- Nenhum processo pode esperar esternamente para entrar em sua regiao critica.  
+Esses métodos são chamados de **exclusão mútua**. Para realiza-los podemos lanar mão das seugintes estratégias:
+#### Exclusão mútua com espera ociosa
+Existem alguns métodos que determinam que quando um processo está em sua região crítica, nenhum outro pode invadi-lá.  
+- Desabilitando interrupçoes: Aqui cad aprocesso desabilita todas as interrupões assim que entra em sua região crítica e as reabilita antes de sair dela.  
+- Variaveis de impedimento: Aqui o processo testa e verifica o valor dessa variável antes de entrar na região crítica, e caso o valor seja 0, o processo altera o valor para 1 e enrta na região crítica. Caso o valor da variável seja 1, o processo deve aguardat até que o valor serja alterado para 0.  
+- Alternância Obrigatória: Essa solução utiliza uma variável compartilhada, turn que indica qual processo poderá entrar na região crítica (ordem). Essa variável deve ser modificada para o próximo processo antes de sair da região crítica.  
+- Solução de Peterson: Implementada por meio de algirtmos baseados na definição de duas primitivas (enter_region e leave_region) utilizadas pelos processos que desejam utilizar sua região crítica.  
+- Instrução TSL
+#### Dormir e Acordar
+Para resolver uma espera ociosa, são realizadas aos sistemas *sleep* e *wakeup* que bloqueiam/desbloqueiam o processo em vz de gastar tempo de CPU com espera ociosa.  
+A chamada *sleep* faz com que o processo que a chmou durma até que outro processo o desperte e a chamada *wakeup* acorde o processo.
+### Semáforos
+É uma variavel inteira que realiza duas operações:  
+- **DOWN:** Decrementa (diminui) uma unidade do valor dos semáforo.
+- **UP:** Incrementa (adiciona) uma unidade ao valor do semáforo.  
+Os semáforos podem ser classificados como:  
+- Binarios: Podem receber valores 0 ou 1.  
+- Contadores: Podem receber qualquer valor inteiro positivo, além do 0.
+### Monitores
+É uma coleção de procedimentos , variávei e estrutura de dados agrupados em um módulo ou pacote.  
+Quando um processo chama um procdimento de um monitor, é varificado se outro proceso está ativo. Caso esteja, o processo que o chamou é suspenso até que o outro deixe o monitor, o proceso que o chamou, entrar.
+### Troca de mensagens
+Utiliza duas camadas ao sistema:  
+- Send: Envia uma mensagem para um determinado destino.  
+- Receive: Recebe um mensagem de uma determinada origem.
 
 ### Tratamento de Erros: Semáforos
 Para tratar os erros são propostos alguns algoritmos que reduzem a sua probabilidade de ocorrência.  
