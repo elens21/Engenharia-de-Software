@@ -36,19 +36,47 @@ Nas linguagens de programação o gerenciamento da memória é fundamental, pois
 O gerenciamento de memória também conhecido como MMU(**Mmemory Management Unit**). Sua função é mapear os endereços lógicos em que estão as instruções nas memórias físicas.  
 O acesso ao endereço lógicoque é gerado pelo processo e com isso a **MMU** direcionará o endereço lógico para o mesmo correspondente na memória física.
 
+## SWAPPING
+A troca de processos (swapping) é realizado quando não existe memória principal suficiente para executar todos os programas do computador o mesmo tempo.  
+Na troca de processos um programa é totalmente carregado em memória e executado por um tempo definido, enquanto os demais programas aguardam, em disco, sua vez de executar.  
+O swapping traz totalmente cada processo para a memória, o executa por algum tempo e o retorna para o disco. A figura presenta como se dá o funcionamento da troca de processos na memória principal.  
+![imagem: swapping](//imagens%20para%20anexar/swapping%20-%20Imagem1-p-500.png)
+Exemplificando o conceito:  
+- Um computador possui uma memória de 512MB e tem 4 processos para serem executados com os tamanhos de 481MB, 508MB, 380MB  e 369MB, respectivamente.  
+- O gerencimanento de memória seleciona um processo inteiro para ser executado em memória e os demais processos aguardam em disco a sua vez de executar.  
+- Se o primeiro processo (com o tamanho de 481MB) for selecionado para ser executado, ele é carregado para a memória e executado por um tempo determinado.  
+- Assim que o tempo finalizar, o processo retorna para o disco e outro é selecionado para executar.  
+- Importante: para a seleção do processo que será executado são utilizados algoritmos que utilizam de critérios para realizar a escolha.  
+O swapping permite um maior compartilhamento da memória principal e utilização dos recuros do sistema..  
+Porém quando existe pouca memória RAM disonível, o sistema pode ficar dedicado a execução do swapping, deixando de realizar as tarefas mais críticas, se tornando ineficiente.
+
+## Multiprogramação com partições variáveis
+A alocação particionada variável consiste em ajustar dinamicamente o tamanho das partições de memória quando os processos chegam para serem executados. Ou seja, cada processo utiliza um espaço necessário para executar, não acontecendo a fragmentação interna.  
+A vantagem das partições variáveis é a flexibilidade por não estar preso a um número fixo de partições, melhorando a utilização da memória, porém impactando o gerenciamento das trocas de processos e na alocação e liberação da memória. 
+Quando processos precisam consumir mais memória durante o processamento, é necessário alocar memória dinamicamente. Existem dois métodos de gerencimento de memória com alocação dinâmica:  
+
+### Gerenciamento de memória com mapa de bits: 
+![imagem: mapa de bits](//imagens%20para%20anexar/multiprogramacao%20com%20particoes%20variaveis%20-%20maa%20de%20bits-p-500.png)  
+Nesse método a memória é dividida em unidades de alocação, a qual é associada a um bit no mapa de bits. Se o valor do bit for 1, indica que a unidade está ocupada, e se o bit for 0, ela está livre.  
+A imagem **(a)** acima mostra uma parte da memória com 5 segmentos alocados a processos (A,B,C,D e E) e 3 segmentos de memória livre (espaços vazios).
+A imagem **(b)** mostra o mapa de bits correspondete a memória.  
+Segmento é uma área de memória alocada a um processo ou uma área livre de memória entre dois processos.  
+### Gerenciamento de memória com listas encadeadas
+![imagem:listas encadeadas](//imagens%20para%20anexar/multiprogramacao%20com%20particoes%20variaveis%20-%20listas%20encadeadas%20-%20Imagem3-p-500.png)
+Aqui consiste em manter uma lista encadeada de segmentos alocados e livres na memória.  
+A figura **(a)** mostra uma parte da memória cm cinco segmentos alocados a processos (A, B, C, D e E) e 3 segmentos de memória livre (espaços vazios). A figura **(c)** apresenta a lista encadeada e a memória dividida emuunidades de alocação.  
+Cada elemento dessa lista especifica um segmento de memória disponível (H) ou de memória alocada ao processo (P), o endereço no qual se inici o segmento e um ponteiro para o próximo elemento  da lista.  
+## Algoritmos de troca de processos
+Para definir em qual área livre os processos serão executados por meio da lista encadeada são utilizados os algoritmos.   
+- Fisrt Fit (O primeiro que couber): É o algoritmo mais simples e que consome menos recurso do sistema. O gerenciador de memória procura ao longo da lista por um segmento livre que seja suficientemente grande para esse processo.  
+- Next Fit (O próximo que couber): Este algoritmo é uma variação do Fisrt Fit. A posição em que encontra o segmento de memória disponivel é memorizada não precisando percorrer toda lista quando se quer alocar.  
+- Best Fit (Melhor que couber): Percorre toda a lista e escolhe o menor segmento de memória livre suficiente ao processo. Este algoritmo é mais lente uma vez que procura em toda a lista.  
+- Worst Fit (Pior que couber): Sempre é escolhido o maior segmento de memória disponivel de maneira que , quando divididoo segmento disponível restante deve ser suficientemente grande para ser útil depois.  
+- Quick Fit (Mais rápido que couber): Algoritmo rápido e mantém listas separadas por tamanhos de segmentos de memória mais solicitados disponível.
+
 ## Alocação de memória
 Há 3 tipos:  
 - Alocação contígua simples: Mais voltada pra realidade dos primeiros S.O (mais antigos). Sendo a memória principal divida em 2 grandes áreas: uma para alocar o sistema operacional e outra para alocar as aplicações do usuário.  
 Dessa fora o desenvolvimento dessas aplicações de usuário tinha que respeitar os limítes da área de alocação disponível pras aplicações de usuário predeterminadas.  
 - Técnica de overlay: Considera que diante de uma aplicação, a divisão de módulos auxiliará na determinação do espaço de memória necessária a executar os módulos de forma independente.
 - Divisão da aplicação em módulos
-
-## Gerenciamento de memória
-Pode ser dividio em duas classes:
-- Sistemas que durante o processamento levam e trazem informações da memória para o disco (troca de processos e paginação)  
-- Sistemas que não o fazem. A troca de processos (swapping) carrega todo o programa para a memória principal, o executar por um determinado tempo e depois o mesmo retorna para o disco. A paginação divide a memória em partições para a execução das aplicações.
-### Monoprogramação sem troca de processos ou paginação
-Esse método de gerenciamento de memória, é o mais simples pois somente um programa é executado por vez, a memória é compartilhada entre o sistema operacional o programa. Temos 3 formas em que pode ocorrer esse tipo: 
-- O sistema operacional está utilizando o espaço de um endereçamento em RAM.  
-- O sistema operacional está utilizando espaço de endereçamento em ROM somente para a leitura.  
-- Os drivers de dispositivos estão em ROM e os programas do usuario e o S.O estão em RAM.
