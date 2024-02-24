@@ -72,7 +72,7 @@ Para definir em qual área livre os processos serão executados por meio da list
 - Next Fit (O próximo que couber): Este algoritmo é uma variação do Fisrt Fit. A posição em que encontra o segmento de memória disponivel é memorizada não precisando percorrer toda lista quando se quer alocar.  
 - Best Fit (Melhor que couber): Percorre toda a lista e escolhe o menor segmento de memória livre suficiente ao processo. Este algoritmo é mais lente uma vez que procura em toda a lista.  
 - Worst Fit (Pior que couber): Sempre é escolhido o maior segmento de memória disponivel de maneira que , quando divididoo segmento disponível restante deve ser suficientemente grande para ser útil depois.  
-- Quick Fit (Mais rápido que couber): Algoritmo rápido e mantém listas separadas por tamanhos de segmentos de memória mais solicitados disponível.
+- Quick Fit (Mais rápido que couber): Algoritmo rápido e mantém listas separadas por tamanhos de segmentos de memória mais solicitados disponível. 
 
 ## Alocação de memória
 Há 3 tipos:  
