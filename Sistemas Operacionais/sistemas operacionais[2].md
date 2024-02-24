@@ -192,7 +192,7 @@ Siginifica que dentro do diretório-raiz possui um diretório chamado "usuário"
 No linux o sistema de diretórios é baseado numa estrutura hierárquica e os diretórios são implementados por meio de arquivos. 
 ## Alocação de Arquivos
 Alocação de arquivos é o método pelo qual os dados são apensados/incorporados/alocados no espaço de armazenamento físico no sistema operacional.
-Para que o SO possa alocar os arquivos, é preciso que realize a gerência dos espaços disponíveis em disco, quanto e quais partes do HD estão disponíveis.  
+
 As estruturas de dados que podem ser usadas para essa alocação são basicamente listas e tabelas.  
 ### Alocação de Arquivos - Tabelas
 A tabela de alocação é um mapa de utilização do disco ou disquete. Graças a ele, o S.O é capaz de saber exatamente onde um determinado ficheiro está armazenado.  

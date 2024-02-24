@@ -57,3 +57,5 @@ Seus usuários geralmente são gerentes, coordenadores etc.
 São sistemas utilizados para auxiliar seus usuários na tomada de decisão principalmente na área estratégica.
 ### Sistemas de Apoio ao Executivo **(SAEs)**  
 Ofere informações de fontes internas e externas pra serem administrados pela alta gestão. Produzem gráficos personalizados e conseguem analisar para melhores tomadas de decisões.
+
+# A tecnologia da informação no contexto organizacional
