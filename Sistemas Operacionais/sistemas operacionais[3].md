@@ -81,7 +81,6 @@ Há 3 tipos:
 Dessa fora o desenvolvimento dessas aplicações de usuário tinha que respeitar os limítes da área de alocação disponível pras aplicações de usuário predeterminadas.  
 - Técnica de overlay: Considera que diante de uma aplicação, a divisão de módulos auxiliará na determinação do espaço de memória necessária a executar os módulos de forma independente.
 - Divisão da aplicação em módulos
-
 # Memória Virtual
 A memória virtual é um espaço reservado no disco rígido do computador para ser utilizado quando a memória RAM não é suficiente para executar.  
 ## Paginação e tabela de páginas
@@ -90,3 +89,31 @@ A paginação é a técnica de gerência de memória em que o endereçamento vir
  
 Os programas geram endereços virtuais e constituem o espaço de endereçamento virtual. Nos sistemas operacionais que trabalham com a memória virtual, o endereçamento virtual é enviado par a a MMU (Memory management unit,em que um chip está localizado na CPU).  
 A CPU gera os endereços virtuais e os envia a MMU. A MMU por sua vez envua os endereços físicos para  a memória.
+  
+O endereço virtual divide-se em unidades conhecidas como páginas e sua referência na memória física são as molduras de página. As páginas e as molduras de páginas tem o mesmo tamanho e a movimentação entre disco e memória são sempre realizadas em unidades de página.
+
+![imagem: MMU - Mapeamento de endereço virtual em físico](//imagens%20para%20anexar/mmu%20-%20Imagem2.png)
+Repare que na figura temos 16 páginas virtuais e 8 molduras de página. Quando um programa tenta acessar o endereço 0, o endereço virtual 0 é enviado a MMU, que o localiza na pégina virtual (0 a 4K) e que corresponde à moldura de página 2 (8K a 12K). A MMU transforma o endereço virtual 0 no endereço 8K e o envia a memória por meio do barramento, Como existem apenas oito molduras de página física, somente oito páginas virtuais podem ser mapeadas.  
+O mapeamento realizado pela MMU dá-se por meio da tabela de páginas, O objetivo da tabela é mapear paginas virtuais em molduras de pagina física.  
+A tabela de paginas contem o endereço virtual de cada moldura de pagina na mmoria fisica e o numero da página é utilizado como um índice na tabela. Cada processo possui sua tabela própria e cada página possui uma entrada nela.  
+Cada pagina na tabela possui um bit presente/ausente. Se o bit foi 0 indica uma interrupção por falta de página e caso o bit tenha valor 1, a pagina esta mapeada na memória. O número da moldura deve ser concatenado com os bits dedeslocamento formando o endereço fisico. 
+A figura a seguir apresenta um exemplo de como a MMU trabalha junro com a tabela de paginas: *(Operação interna da MMU com 16 paginas)*  
+![imagem: operacao interna da MMU](//imagens%20para%20anexar/operacao%20interna%20da%20mmu%20-%20Imagem3.png)
+
+### Algoritmos de substituição de páginas
+Quando uma falta de páginas ocorre, o sistema operacional precisa escolher uma a ser removida da memória, a fim de liberar espaço para uma nova ser trazida.  
+Esse processo é feito pelos algritmos de substituição de páginas que têm o objetivo de selecionar as páginas com as menores chances de serem referenciadas (utilizadas) no futuro.  
+Quanto menor for o tempo gasto comas recargs de páginas, mais eficientes será o algoritmo.  
+Há vários algoritmos de substituição de páginas, como podemos observar.  
+- Algoritmos de substituição de página ótimo  
+- Algoritmo de substituição de página não recentemente utilizada NUR    
+- Algoritmo de substituição de página FIFO  
+- Algoritmo de substituição de páginas de segunda chance SC
+- Algoritmo de substituição de página relógio  
+- Algoritmo de ssubtituição de página menos recentemente utilizada MRU  
+
+### Segmentação
+Se um programa possui um número grande de variáveis, o espaço reservado para elas na tabela de simbolos pode se esgotar a medida que o compilador é executado e sobrara espaço nas outras tabelas.  
+Para resolver este problema temos que fornecer ao computador vários espaços de endereçamento independentes chamados de segmentos.  
+Cada segmento tem um tamanho dinâmico e independente dos outros (que varia de 0 a um valor máximo), conforme figura abaixo, permitindo que o segment aumente ou diminua durante a execução. Os endereçoes são compostos pelo numero do esgmento e um deslocamento dentro do segmento.  
+![imagem: memoria segmentada](//imagens%20para%20anexar/memoria%20segmentada%20-%20Imagem4-p-500.png)
