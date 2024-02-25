@@ -1,5 +1,5 @@
 # Gerenciamento de Dispositivos
-## Gerenciamento de memória
+# Gerenciamento de memória
 Memória é o lcoal de armazenamento de informações e o seu gerenciamento em um S.O é importante para garantir a eficiência das aplicações que rodam no computador.  
 O conceito de hierarquia de memória, pode ser representado da seguinte maneira:  
 ```mermaid
@@ -13,7 +13,8 @@ A hierarquia de memória é controlada pelo **gerenciamento de memória**, respo
 A hierarquia pode ser representada por uma pirâmide. Quanto mais alto as memórias estiverem, mais caras elas serão, ou seja, posuirão alta velocidade de processamento e baixa capacidade de armazenamento. E quanto mais baixa, mais baratas serão, ou seja, possuirão grande capacidade de armazenament e baixa velocidade de processamento.  
 O gerenciamento de memória pode ser divido em duas classes:  
 - Sistemas que fazem troca de processos e paginação.  
-- Sistemas que não fazem troca de processos e paginação.  
+- Sistemas que não fazem troca de processos e paginação. 
+   
 ### Monoprogramação sem troca de processos ou paginação
 Esse mecanismo de gerenciamento é o mais simples, no qual somente um programa é executado por vez e a memória é compartilhada entre o sistema operacional e o programa.  
 Ela pode ocorrer em 3 formas:  
@@ -80,3 +81,12 @@ Há 3 tipos:
 Dessa fora o desenvolvimento dessas aplicações de usuário tinha que respeitar os limítes da área de alocação disponível pras aplicações de usuário predeterminadas.  
 - Técnica de overlay: Considera que diante de uma aplicação, a divisão de módulos auxiliará na determinação do espaço de memória necessária a executar os módulos de forma independente.
 - Divisão da aplicação em módulos
+
+# Memória Virtual
+A memória virtual é um espaço reservado no disco rígido do computador para ser utilizado quando a memória RAM não é suficiente para executar.  
+## Paginação e tabela de páginas
+A paginação é a técnica de gerência de memória em que o endereçamento virtual  o espaço de endereçamento real são dividios em blocos do mesmo tamanho, chamado páginas. Foi criada para fornecer um epaço de endereçamento linear sem a necessidade de adquirir mais memória física. 
+![imagem: cpu e mmu](//imagens%20para%20anexar/memoria%20virtual%20-%20CPU%20E%20MMU%20-%20Imagem1-p-500.png)
+ 
+Os programas geram endereços virtuais e constituem o espaço de endereçamento virtual. Nos sistemas operacionais que trabalham com a memória virtual, o endereçamento virtual é enviado par a a MMU (Memory management unit,em que um chip está localizado na CPU).  
+A CPU gera os endereços virtuais e os envia a MMU. A MMU por sua vez envua os endereços físicos para  a memória.
