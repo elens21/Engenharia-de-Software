@@ -340,6 +340,7 @@ Para termos uma boa solução, temos que satisfazer 4 soluções:
 - Nenhum processo pode esperar esternamente para entrar em sua regiao critica.  
 Esses métodos são chamados de **exclusão mútua**. Para realiza-los podemos lanar mão das seguintes estratégias:
 #### Exclusão mútua com espera ociosa
+Esclusão mútua é o que garante que apenas 1 processo por vez pode acessar um recurso compartilhado.  
 Existem alguns métodos que determinam que quando um processo está em sua região crítica, nenhum outro pode invadi-lá.  
 - Desabilitando interrupçoes: Aqui cad aprocesso desabilita todas as interrupões assim que entra em sua região crítica e as reabilita antes de sair dela.  
 - Variaveis de impedimento: Aqui o processo testa e verifica o valor dessa variável antes de entrar na região crítica, e caso o valor seja 0, o processo altera o valor para 1 e enrta na região crítica. Caso o valor da variável seja 1, o processo deve aguardat até que o valor serja alterado para 0.  
