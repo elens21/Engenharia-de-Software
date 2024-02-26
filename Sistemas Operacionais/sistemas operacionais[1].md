@@ -45,10 +45,10 @@ Quando um programa é executado o kernel é consultado para saber se o acesso se
 ### Estrutura do sistema operacional
 Quando falamos da estrutura do S.O estamos falando da maneira pelo qual o código do sistema é organizado e o inter-relacionamento entre seus diversos componentes pode variar conforme a concepção do projeto.  
 São alguns dos seus principais modelos de arquitetura:
-- **Sistemas monoliticos:** O sistema operacional é escrito como um conjunto de módulos que são compilados separadamente e depois agrupados em um arquivo executável onde cada procedimento pode ser chamado por outro quando precisar.  
+- **Sistemas monoliticos:** O sistema operacional é escrito como um conjunto de módulos que são compilados separadamente e depois agrupados em um arquivo executável onde cada procedimento pode ser chamado por outro quando precisar. Todas as funções em um único pacote a ser distribuido ao cliente. Módulos executados separadamente mas que compõem um único executável.
 - **Sistema em camadas:** Organiza o sistema operacional como uma hierarquia de camadas. Cada camada oferece um conjunto de funções que podem ser utilizadas pelas camadas superiores.  
-- **Máquinas Virtuais:** Uma máquina Virtual (VM) é similar a uma máquina real. Um nível intermediário é criado entre o sistema operacional e o hardware. Esse ,nível cria várias máquinas virtuais independetes, onde cada qual possui uma cópia virtual do hardware.  
-- **Modelo Cliente-Servidor:** Nesse modelo a ideia é implementar a maior parte das funções em modo usuário. Tudo o que o kernel faz é cuidar da comunicação entre cliente e servidor.  
+- **Máquinas Virtuais:** Uma máquina Virtual (VM) é similar a uma máquina real. Um nível intermediário é criado entre o sistema operacional e o hardware. Cria máquinas virtuais independentes dentro de uma mesma máquina física. Esse ,nível cria várias máquinas virtuais independetes, onde cada qual possui uma cópia virtual do hardware.  
+- **Modelo Cliente-Servidor:** Nesse modelo a ideia é implementar a maior parte das funções em modo usuário. Tudo o que o kernel faz é cuidar da comunicação entre cliente e servidor. Programa do computador (**cliente**) solicita um serviço/recurso de outro programa (**servido**). Modelo que vincula dispositivos informaticos atraves de uma rede.  
 
 ### Classificação dos sistemas operacionais
 Os sistemas operacionais podem ser classificados em:
@@ -63,17 +63,12 @@ Os sistemas operacionais podem ser classificados em:
 É permitido que mais de um usuario o utilize. Várias aplicações dividindo os mesmos recursos da máquina.  
 **Múltiplos processadores:** 
 Utilizam duas ou mais *UCPs* (Unidade Central de Processamento) que trabalham em conjunto. Ou seja, além da máquina poder executar vários proramas simultaneamente, agora o seu processamento pode ser dividido entre os processadores. Esse tipo de sistema pode ser subdivido em: Fortemente acoplados e Fracamente acoplados.  
-    - Fortemente acoplados: Há vários processadores compartilhando uma única memória física, e os dispositivos de entrada e saída são gerenciados por um único sistema operacional. Por exemplo o Unix e o Windows. Existe uma memória compartilhada por todos os processadores.  
-    - Fracamente acoplados: Possuem 2 ou mais sistemas interconectados em rede, sendo que cad asistema opera de forma independente com seu próprio sistema operacional e gerenciamento de recursos de processamento (UCPs), memória e dispoitivos. Cada sistema tem sua própria memória individual
+    - Fortemente acoplados: 1 memória compartilhada por todos os processadores. Há vários processadores compartilhando uma única memória física, e os dispositivos de entrada e saída são gerenciados por um único sistema operacional. Por exemplo o Unix e o Windows. Existe uma memória compartilhada por todos os processadores.  
+    - Fracamente acoplados: Cada sistema tem sua própria memória individual. Possuem 2 ou mais sistemas interconectados em rede, sendo que cad asistema opera de forma independente com seu próprio sistema operacional e gerenciamento de recursos de processamento (UCPs), memória e dispoitivos. Cada sistema tem sua própria memória individual
 
 A internet é um sistema operacional de múltiplos processadores fracamente acoplado conhecido também como *Sistemas distribuídos*.
 
-### Unidade funcionais do sistema computacional e Arquitetura do SO 
-**Monolítica:** Módulos executados separadamente mas que compõem um único executável. Aqui o SO é escrito como um conjunto de módulos compilados separadamente e depois agrupados em um arquivo executável.  
-**Camadas:** Devido a complexidade do sistema, aqui o SO organiza como uma hierarquia de camadas construídas umas sobre as outras. 
-**Máquina Virtual:** Faz o intermédio entre o hardware e o sistema operacional, Oferece todos os serviços do Sistema O. Pode haver várias máquinas virtuais em uma única máquina.
-**Microkernel:** Menor e mais simples, Trata serviços por processos que oferecem funções específicas.  
-Ele tem modos de tratamento de dados em Hardware, Software e Armazenamento  
+### Alguns conceitos importantes e busca de instruções do processador
 
 **Hardware:** Os dados do processo ficam armazenados nos registradores (status, PC e SP)
 **Software:** Há especificação de recursos e suas limitações para que possam ser alocados os processos. Nome, ÍD(identificaçao), Owner, prioridade, data/hora, tempo de processador etc
@@ -113,8 +108,8 @@ Eis os recursos que o sistema operacional gerencia:
 **Throughput:** Essa taxa refere-se a quantidade de dados que são processados e ao tempo que levou para isso acontecer. É aplicavel tanto em transferências em disco rígido quanto em redes de computadores.
 
 ### Características dos sistemas multiprogramáveis
-**Interrupção:** Ela não depende de um processo em execução, e sim ocorre em função de um evento externo ao prorama que está em uso. Acontece a qualquer momento. E quando ocorre, os dados são armazenados  
-**Exceção:** É diretamente ligada ao prorama, ou seja, é um evento ocorrido em função do processamento do programa.  
+**Interrupção:** Ela não depende de um processo em execução, e sim ocorre em função de um evento externo ao prorama que está em uso. Acontece a qualquer momento. E quando ocorre, os dados são armazenados. Ocorre em função de um evento externo ao programa que está em uso e interrompea execução normal de um programa.   
+**Exceção:** É diretamente ligada ao prorama, ou seja, é um evento ocorrido em função do processamento do programa.  Refere-se a condições de erro. Ex: durante a execução de um programa é tentado acessar uma área da memória que não é permitida pra esse usuário.  
 **Operações de Entrada e Saída:** O controlado ou interface, reconhece os comandos e solitações advindas dos dispositivos e que precisam se comunicar com o hardware e com o software. Assim o processador não se comunica diretamente com o hardware e com o software, e sim com o controlador ou interface. Temos 2 tipos de controladores: E/S controlada por programa e E/S controlada por interrupção  
 
 **Vetor de interrupção:** Guarda o endereço em que está o conjunto de instruções que foram executadas para tratar o evento.
@@ -171,7 +166,7 @@ Sistema operacional de código fonte aberto. O Linux em si é somente o kernel d
 - Gerenciamento de dispositivos de entrada e saída: É responsável por gerenciar os comandos e interrupções geradas pelos dispositivos, tratamento de erros e fornecimento de uma interface simples e fácil de usar.  
 - Gerenciamento de processos: É responsável por criar, finalizar , escalonar e sincronzar processos e threads.  
 - Gerenciamento de memória: É responsável por gerenciar os arquivos e diretórios (criar, exluir por exemplo)  
-- Gerenciamentod e memória: Gerencia quais partes da memória estão em uso e quais estçao disponiveis, alem de administrar a troca de processos entre memória principal e secundária.  
+- Gerenciamento de memória: Gerencia quais partes da memória estão em uso e quais estçao disponiveis, alem de administrar a troca de processos entre memória principal e secundária.  
 
 
 # Processos e Threads
@@ -248,7 +243,8 @@ Os processos em espera sao orgaizados no sistema em listas encadeadas e de acord
 
 ## Threads
 Thread é um fluxo de controle (execução) dentro do processo. Um processo pode contar um ou vários threads que compartilham os recursos do processo. O uso de threads acelera a execução de uma aplicação. 
-Thread é uma sequência de instruções que faz parte de um processo.
+Thread é uma sequência de instruções que faz parte de um processo.  
+Unidades de execução menores dentro de um processo.  
 
 ## Classificação de processos
 Dois tipos: 
@@ -267,6 +263,9 @@ Enquanto no término dos processos, os processos podem ser finalizados nas segui
 - Saída por erro(voluntária): Ocorre quando o processo tent acessar um arquivo que não existe e é emitida uma chamada de saída do sistema.  
 - Erro fatal(involuntário): Quando ocorre um errod e programa.  
 - Cancelamento por um outro processo: Ocorre quando um processo que possui permissao emite uma chamada ao sistema para cancelar outro processo.
+  
+--> Diferença erro fatal e saida por erro: Erro Fatal são erros críticos, são não tratáveis, término não recuperavel do processo, podem aeftar o funciomanento não só do programa mas sim do sistema.  
+Saída por erro  são "menos graves", não afetam o funcionamento do S,o. Geralmente trataveis.  
 
 ```mermaid
     graph TD
@@ -332,13 +331,14 @@ Assim como FORK cria processos, o comando *JOIN* tem o objetivo e sincronizar os
 Condições de disputa ou condiçoes de corrida ocorrem quando dois ou mais processos estão lendo ou escrevendo algum dado compartilhado e o resutlado final depende das informações de quem e quando executa, podendo gerar dados inconsistentes.  
 --> **Região Crítica**: Trecho de programa de cada processo que usam um recurso compartilhado e são executados um por vez.
 ### Regiões críticas
-Para evitar as condições de disputa é necessáriod efinir quais maneiras que impeçam que mais de um processo leia e escreva ao msmo tempo na memória compartilhada.  
+Quando dizemos que um processo entrou na regiao crítica, estamos dizendo que esse processo está acessando recursos compartilados, que podem ser modificados por outros usuários simultaneamente, por isso a importância de se ter mecanismos de sincronização.  
+Para evitar as condições de disputa é necessário definir quais maneiras que impeçam que mais de um processo leia e escreva ao msmo tempo na memória compartilhada.  
 Para termos uma boa solução, temos que satisfazer 4 soluções:  
 - Nunca dois ou mais processos podem estar simultaneamente em suas regiões críticas  
 - Nada pode ser afirmado sobre o numero e a velocidade de CPUs  
 - Nenhum processo executando em uma regiao crítca pode bloquear outros processos.  
 - Nenhum processo pode esperar esternamente para entrar em sua regiao critica.  
-Esses métodos são chamados de **exclusão mútua**. Para realiza-los podemos lanar mão das seugintes estratégias:
+Esses métodos são chamados de **exclusão mútua**. Para realiza-los podemos lanar mão das seguintes estratégias:
 #### Exclusão mútua com espera ociosa
 Existem alguns métodos que determinam que quando um processo está em sua região crítica, nenhum outro pode invadi-lá.  
 - Desabilitando interrupçoes: Aqui cad aprocesso desabilita todas as interrupões assim que entra em sua região crítica e as reabilita antes de sair dela.  
