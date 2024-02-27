@@ -351,15 +351,72 @@ Existem alguns métodos que determinam que quando um processo está em sua regi�
 Para resolver uma espera ociosa, são realizadas aos sistemas *sleep* e *wakeup* que bloqueiam/desbloqueiam o processo em vz de gastar tempo de CPU com espera ociosa.  
 A chamada *sleep* faz com que o processo que a chmou durma até que outro processo o desperte e a chamada *wakeup* acorde o processo.
 ### Semáforos
+São implementados como um contador inteiro, permitindo que os processos incrementem ou decrementem seu valor.  
 É uma variavel inteira que realiza duas operações:  
-- **DOWN:** Decrementa (diminui) uma unidade do valor dos semáforo.
-- **UP:** Incrementa (adiciona) uma unidade ao valor do semáforo.  
+- **DOWN:** É executado quando o processo solicita a entrada na sua regiao critica. Decrementa (diminui) uma unidade do valor dos semáforo.
+- **UP:** É executado quando o processo sai da sua região crítica. Incrementa (adiciona) uma unidade ao valor do semáforo.  
 Os semáforos podem ser classificados como:  
 - Binarios: Podem receber valores 0 ou 1.  
 - Contadores: Podem receber qualquer valor inteiro positivo, além do 0.
+>-- Valor do semáforo pode ser 0 ou 1
+```javascript
+    //Funcionamento semáforo
+    //Inicialização
+    var semaforo = 1; // = status: livre
+    //Operações da variavel semaforo
+    function DOWN(){
+        //Decrementa uma unidade do valor
+        semaforo = semaforo - 1;
+        if (semaforo < 0){//se o valor ficar negativo
+            // = já existe um processo em execução
+            // bloqueia o processo
+            semaforo = 1 //volta valor 1
+        } else if (semaforo == 0) {// se o valor ficar igual 0
+            //liberado entrada desse processo
+            semaforo = 0 // = semaforo: ocupado
+        }
+    }
+    function UP(){
+        //Incrementa uma unidade do valor
+        semaforo = semaforo + 1
+        // Semaforo libera o processo e volta a estar livre
+    }
+////////////////// 
+    function processo_solicitando_entrada(){
+        DOWN()
+    }
+
+    function processo_saindo_regiaoCritica(){
+        UP()
+    }
+``` 
 ### Monitores
-É uma coleção de procedimentos , variávei e estrutura de dados agrupados em um módulo ou pacote.  
-Quando um processo chama um procdimento de um monitor, é varificado se outro proceso está ativo. Caso esteja, o processo que o chamou é suspenso até que o outro deixe o monitor, o proceso que o chamou, entrar.
+É uma coleção de procedimentos , variáveis e estrutura de dados agrupados em um módulo ou pacote.  
+Quando um processo chama um procedimento de um monitor, é verificado se outro processo está ativo. Caso esteja, o processo que o chamou é suspenso até que o outro deixe o monitor, o proceso que o chamou, entrar.
+### Semáforos X monitoes:
+```mermaid
+    graph TD
+    A{SEMÁFOROS}
+    A --> |CONCEITO| D["São como contadores 
+    que os processos usam 
+    para dizer 
+    'eu estou usando um recurso' 
+    ou 'eu terminei de 
+    usar o recurso'"]
+    B{MONITORES}
+    B --> |CONCEITO| E["São como caixas,
+    que guardam recuros e garantem
+    qu apenas um processo pode
+    acessar o recurso por vez"]
+    D --> |USO DE RECURSOS| F["Os processos tem que
+    pegar e liberar o 
+    recurso explicitamente
+    usando as operaões"]
+    E --> |USO DE RECURSOS| G["Os processos acessam os 
+    recursos através de 
+    métodos especiais do monitor 
+    "]
+```
 ### Troca de mensagens
 Utiliza duas camadas ao sistema:  
 - Send: Envia uma mensagem para um determinado destino.  
