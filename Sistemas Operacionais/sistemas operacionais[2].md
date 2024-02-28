@@ -67,13 +67,20 @@ Segundo Tanenbaum (2003), sistemas de arquivos diferentes oferecem operações d
 - Read: Leitura dos dados do arquivo    
 - Write: Grava os dados no arquivo.  
 
+### Arquivo e registros
+**Arquivo** são unidades de armazenamento de dados mais abrangentes, que podem conter múltiplos registros ou outros tipos de informações organizados em uma estrutura lógica.  
+**Registros** são estruturas de dados individuais dentros de um arquivo, contendo informações específicas ou campos de dados relacionados.  
+Ou seja, um arquivo pode conter vários registros, enquanto um registro é uma unidade de dados dentro do arquivo.
+
 ### Organização de Arquivos
 - Temos a **sequencial** também conhecida como **Não estruturada**, o aceso ao registro é precário pois é necessário a leitura de todos os registros até que seja encontrado o que de fato esta sendo procurado, pois a organização dos arquivos é feito sequencialmente.  
 É a forma mais simples de organização, o arquivo sequencial indexado é formado por um arquivo sequencial e por um índice. Contém 3 áreas distintas: 
     - Área de índice  
     - Área de dados  
-    - Área de extensão
-- Temos também a **indexada**, em que os dados se interligam através de um índice que a partir de sua definição organizará os dados de um registro de acordo com uma determinada regra.  
+    - Área de extensão  
+Aqui é efetuado a leitura dos registros de forma sequencial, comparando o "argumento de pesquisa" com o valor do registro até que se ache o que está sendo buscado.  
+- Temos também a **indexada**, em que os dados se interligam através de um índice que a partir de sua definição organizará os dados de um registro de acordo com uma determinada regra. 
+- É formada pela combinação de pelo menos um arquivo de dados e um ou mais arquivos de indice.   
 Ex: No reistro a seguir em que os dados se interliam a partir de informações incomum com os demais. Essa ligação pode ser através de uma definição de idade, altura, sexo etc, que sejam compatíveis.  
 É essencial que exista um dado em comum entra os registros do arquivo para que se obtenha tal indexação.  
 - Temos também a **Relativa ou Direta**, refere-se a locação dinâmica e aleatória do arquivo. Pos esse motivo pode ser localizado a partir de uma chave de acesso e do local em que está armazenado.
@@ -166,7 +173,7 @@ Esse esquema é chamado de diretório em dois niveis.
 ```mermaid
     graph TD
     A["Diretório Raiz"]
-    A --- B ["Diretório de usuário 1"]
+    A --- B["Diretório de usuário 1"]
     A --- C["Diretório de usuário 2"]
     A --- D["Diretório de usuário 3"]
     B --- E["Arquivo 1"]
