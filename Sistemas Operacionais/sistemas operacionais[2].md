@@ -189,11 +189,25 @@ Essa estrutura facilita a organização dos arquivos opara o usuário que pode s
 
 
 ### Nomes de Caminhos dos diretórios
-Quando o ssitema de arquivos é organizado por meio de uma árvore de diretórios, é necessário definir uma forma de especificar o nome dos arquivos. Para isso, são usados dois métodos: **nome de caminho absoluto** e **nome de caminho relativo**.  
-- Nome de caminho absoluto: É formado pelo caminho entre o diretório-raiz e o arquivo. Os nomes de caminhos absolutos sempre iniciam no diretório-raiz e são unicos. Como exemplo o caminho:  
-    /usuário/meus_documentos/atividades.txt  
-Siginifica que dentro do diretório-raiz possui um diretório chamado "usuário" e dentro de "usuário" existe um subdiretório chamado "meus_documentos" e dentro do subdiretório "meus_documentos" existe um arquivo chamado "atividades.txt".  
-- Nome de caminho relativo: É usado em conjunto com o conceito de diretório atual ou diretório de trabalho. Dessa forma é possível ser designado pelo usuário um diretório como diretório atual de trabalho em que todos os nomes de caminhos não comecem no diretório-raiz. Por exemplo se o diretório atual for /usuário/meus_documentos/, logo o arquivo cujo caminho absoluto for /usuário/meus_documentos/atividades pode ser referenciado apenas como atividades.
+Quando o ssitema de arquivos é organizado por meio de uma árvore de diretórios, é necessário definir uma forma de especificar o nome dos arquivos. Para isso, são usados dois métodos: **nome de caminho absoluto** e **nome de caminho relativo**. 
+Imagine a seguinte estrutura de diretórios 
+```mermaid
+    graph TD
+    A[C:] --- B[Users]
+    B --- C[Escritorio]
+    C --- D[Desktop]
+    D --- E[Curso]
+    E --- F[Engenharia-de-Software]
+    F --- G[Sistemas Operacionais]
+    G --- H[sistemas operacionais.md]
+```
+- Nome de caminho absoluto: É formado pelo caminho entre o diretório-raiz e o arquivo. Os nomes de caminhos absolutos sempre iniciam no diretório-raiz e são unicos.   
+É a informação para a localização do recurso de forma independete da página atual.  
+O caminho absoluto do exemplo apresentado seria:
+> C:\Users\Escritorio\Desktop\curso\Engenharia-de-Software\Sistemas Operacionais\sistemas operacionais.md
+
+- Nome de caminho relativo: É usado em conjunto com o conceito de diretório atual ou diretório de trabalho. Dessa forma é possível ser designado pelo usuário um diretório como diretório atual de trabalho em que todos os nomes de caminhos não comecem no diretório-raiz. Assim o caminho relativo do exemplo apresentado seria:
+> Sistemas Operacionais\sistemas operacionais.md
 
 ### Sistemas de diretórios do Linux
 No linux o sistema de diretórios é baseado numa estrutura hierárquica e os diretórios são implementados por meio de arquivos. 
@@ -231,16 +245,14 @@ Algumas formas de fazer essa implementação:
 ### Alocação contígua
 É o método mais simples, em que os arquivos são armazenados de forma sequencial no disco. Assim se você tem um disco rígido com blocos de tamanho 1MB e um arquivo cujo tamanho seja 40MB, você utilizará 40 blocos sequenciais de disco para alocar o arquivo, e assim por diante.  
 Os dados são dispostos de maneira sequencial sobre  um conjunto de blocos consecutivos no disco, sem "buracos" entre os blocos. Assim a localização do conteúdo do arquivo no disco é definida pelo endereço do seu primeiro bloco.. O sistema localiza um arquivo através do endereço do primeiro bloco e da sua extensão em blocos.  
-
-
-**##########IMAGEM PG 310**  
-
-  
+![imagem:alocao contigua](//imagens%20para%20anexar/alocacao-contigua.jpg)
 Por exemplo, caso um bloco do disco aresente defeito e não permita a leitura dos dados contidos nele, apenas o conteúdo daquele bloco é perdido. O conteúdo dos blocos anteriores e posteriores ainda poderão ser acessados.  
 Porém por outro lado, uma das desvantagens é a sua baixa flexibilidade, pois o tamanho máximo de cada arquivo precosa ser conhecido no momento de sua criação. No exemplo acima por exemplo, o arquivo *relat.pdf* não pode ser aumentado de tamanho pois não há blocos livres imediatamente apóes ele. Para pode aumentar o tamanho desse arquivo ele teria de ser movido, ou o arquivo seguinte a ele (*instruc.txt*), para liberar os blocos necessários.
 
 ### Alocação por Lista Encadeada:
 Consiste em organizar os mesmos como um conjunto de blocos ligados logicamente no disco, independete de sua localização física. Cada bloco contem um ponteiro para o bloco seguinte no arquivo.  
+Cada bloco do arquivo é composto por dados e pelo endereço do próximo bloco aonde está a continuação dos dados. Por exemplo o arquivo *A.txt* se inicia no posição 4 e contém o endereço para o proximo bloco do arquivo, que é o bloco 7. O próximo bloco de dados do arquivo será o bloco 2. O bloco 2 faz referência para o próximo endereço de armazenamento, o bloco 10, e assim por diante.  
+![imagem: lista encadeada](//imagens%20para%20anexar/alocacao-lista-encadeada.JPG)  
 
 ### Alocação por Lista Encadeada usando uma tabela na memória
 Cada palavra de ponteiro de cada bloco de disco é inserida em uma tabela na memória principal, chamada de FAT (File Allocation Table)
