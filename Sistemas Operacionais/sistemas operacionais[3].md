@@ -82,7 +82,8 @@ Dessa fora o desenvolvimento dessas aplicações de usuário tinha que respeitar
 - Técnica de overlay: Considera que diante de uma aplicação, a divisão de módulos auxiliará na determinação do espaço de memória necessária a executar os módulos de forma independente.
 - Divisão da aplicação em módulos
 # Memória Virtual
-A memória virtual é um espaço reservado no disco rígido do computador para ser utilizado quando a memória RAM não é suficiente para executar.  
+A memória virtual é um espaço reservado no disco rígido do computador para ser utilizado quando a memória RAM não é suficiente para executar. 
+## Memória 
 ## Paginação e tabela de páginas
 A paginação é a técnica de gerência de memória em que o endereçamento virtual  o espaço de endereçamento real são dividios em blocos do mesmo tamanho, chamado páginas. Foi criada para fornecer um epaço de endereçamento linear sem a necessidade de adquirir mais memória física. 
 ![imagem: cpu e mmu](//imagens%20para%20anexar/memoria%20virtual%20-%20CPU%20E%20MMU%20-%20Imagem1-p-500.png)
