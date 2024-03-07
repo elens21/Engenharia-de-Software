@@ -19,3 +19,28 @@ Composta por 3 dimensões:
 # Trabalhadores de conhecimento e informação
 **Conhecimento:** Pesquisadores, Analistas financeiros etc.  
 **Informação:** Professores, enfermeiros, operadores de call center etc.  
+
+# Dimensões da qualidade da informação
+É algo subjetivo, ou seja, não é exato. Pois depende do contexto em que está inserida e das interpretações.  
+Existem 2 entendimentos sobre a qualidade da informação:  
+- A informação como algo que é desenvolvido e obtido, tendo sua natureza direcionada para o objetivo.  
+- A informação vinculada às pessoas que à detêm, com natureza implícita voltada aos aspectos subjetivos da informação.  
+## Níveis de classificação de dimensões
+**Abrangência da informação:** Quantidade de informação no tamanho certo e de modo satisfatório de acordo com as necessidades. *Atributos: vetores da informação.*  
+**Integridade da informação:** Quando uma informação sofre qualquer alteração ou atualização nao autorizada ela é uma informação não íntegra. *Atributos: nivel de integridade da informação*.  
+**Acurácia da informação:** Trata-se da informação legítima e válida, uma vez que o nivel de acurácia da informação depende dos procedimentos que são empregados para sua geração. *Atributos: nível de acurácia; método para determinar o nível ede acurácia.*  
+**Confidencialidade da informação:** O manuseio da informação durante o processo de gestão do conhecimento faz com que a confidencialidade de informações sobre pessoas, processos e outros seja crítica. *Atributos: público-alvo, predileções informacionais do público alvo.*  
+**Atualidade da informação:** Com o decorrer do tempo as informações tendem a se desatualizar ou se desvincular da realidade atual. Portanto para aumentar a qualidade da informação é necessário atualizações. *Atributos: data de geração da informação; horário de geração da informação; intervalo de tempo entre cada nova geração da informação.*  
+**Ineditismo da informação:** Pode ser entendido como raridade da informação. Ultrapassando o conceito de novidade. Exemplo; as informação de culturas nativas sorbe o uso de plantas medicinais, são raras e contruídas ao longo de vários séculos. *Disponibilidade de informações idênticas ou similares.*  
+**Contextualização da informação:** É composta por itens que bucam atrair e manter a atenção do público-alvo, como o idioma utilizado, teor do texto etc, O objetivo é fazer com que a informação esteja contextualizada com os interesses e realidades do público-alvo. *Atributos: caracterização da informação.*  
+**Precisão da informação:** Detalhamento necessário para o pronto usod a informação, por meio da seleção adequada de imagens, palavras etc. *Atributos: nível de precisão da informação.*  
+**Confiabilidade da informação:** Aquele em que os usuários acreditam independente de ser verídica. Esta associada a credibilidade do autor/fonte. *Atributos: credibilidade da onte; credibilidade do conteúdo.*  
+**Originalidade da informação:** Se é traduzida, copiada, editava, se teve alguma alteração no conteúdo original. *Atributos: originalidade da informação.*  
+**Existência da informação:** *Atributos: localização do algoritmo para geração da informação;*  
+**Pertinência da informação:** Mensura a capacidade da informação de agregar valor ao púbico-alvo. *Atributos: valor potencial da informação; valor entregue pela informação.*  
+**Identidade da informação:** Relacionada ao nome atríbuido, o qeu interfere no proceso de busca e acesso. *Atributos: Nome; sinônimos, autoria*  
+**Audiência da informação:** Analisa o acesso à informação pelo seu público-alvo de modo que as informações podem ter seus acessos monitorados para a tomada de decisões. *Atributos: frequência de acesso, duração do tempo de acesso.*  
+
+
+
+
