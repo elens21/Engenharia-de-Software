@@ -44,3 +44,26 @@ Existem 2 entendimentos sobre a qualidade da informação:
 
 
 
+# Introdução aos sistemas de informação
+Os profissionais de TI passam suas carreiras projetando, desenvolvendo, implementando, atualizando, administrando e empregando sistemas todos os dias.  
+O objetivo de um sistema de TI é permitir que as organizações processem e compartilhem informações. Já os resultados de um sistema de TI bem-sucedido são documentos, processos de negócios produtividade aprimorados.  
+O sistema de informações baseado em computador é compostod e vários elementos diferentes:
+- **Dados:** Os dados são a representação fundamental de fatos e observações. Os dados são processados por um sistema de computador para fornecer as informações que justificam a existência do computador.  
+- **Hardware:** Processa os dados executando instruções, armazenando dados e movendo dados e informações entre os diversos dispositivos de entrada e saída que tornam o sistema e as informações acessíveis aos usuários.  
+- **Software:** Consiste no sistema e nos programas que definem as instruções executadas pelo hardware. O software determina o trabalho a ser realizado e controla a operação do sistema.  
+- **Comunicação:** Os modernos sistemas de informação computacionais dependem da capacidade de compartilhar operações e dados de processamento entre diferentes computadores e usuários, localizados locamente ou remotamente. A comunicação de dados fornece esse recurso.  
+
+Lembrando que as pessoas envolvidas com os sistemas de informação são elementos essenciais no funcionamento do sistema.  
+Ao analisar um sistema, os próprios componentes podem ser representados como sistemas. O nível de de detalhe a ser considerado depende do contexto em que o sistema está sendo desenvolvido ou avaliado. A divisão de um sistema ou subsistema em seus componentes é chamada de decomposição.  
+
+## Categorias princiapais de sistemas de informações
+Elas são classificadas de acordo com o nível em que a tomada de decisão ocorre:
+```mermaid
+    graph LR
+    A["Nível Estratégico:
+    Sistemas de informação executiva"]
+    A---B["Nível gerencial:
+    Sistemas de informações gerenciais e de suporte a decisão"]
+    B---C["Nível operacional:
+    Sistemas de processamento de transações"]
+```
