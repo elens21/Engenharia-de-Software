@@ -1,4 +1,3 @@
-------------| continuar TA1 - vid.5 | Pesquisar o que são barramentos e inserir uma imagem ilustrativa.
 
 # Conceitos básicos de arquitetura e organização de computadores
 - Entrada de dados; Um input, por exemplo o teclado, mouse  
@@ -13,6 +12,10 @@ Os dados são inseridos no computador que irá processá-los e retornar o result
 Bites são sequências de 8 bits. então 1 byte = 8 bits.
 
 # Barramentos
+Via de comunicação do processador com o seu exterior.
+![imagem: barramentos](//Arquitetura%20e%20organização%20de%20computadores/imagens/barramento1.png)  
+São as vias por onde passam os dados, permitem a transmissão de informações entre a CPU, os disposistivos e as unidades de memória.  
+Através deles o processador vai fazer a comunicaçao com os dispositvos de entrada e saída
 
 # Desenvolvimento histórico
 Máquinas de cálculo mecânicos:
@@ -37,6 +40,9 @@ Composta pela unidade lógia aritmética, unidade de controle que controla as un
 - **Multicore** ter dentro de um único chip, vários processadores.  
 Os processadores modernos tiveram gerações distintas como: A família x86 de 16 bit. Processadores de 32bits. Processadores de 64bits. Processadores Multicore. Intel Core.
 
+## ULA
+É responsável por executar os cálculos matemáticos utilizados para processar os dados dentro do computador.
+
 ## Memórias
 A memória RAM possibilita aos processadores endereçar dados dividos em regiões distintas usadas pelo sistema operacional da máquina, verifica informaçõe de dispositivos de entrada e saída, de programas do usuário e dados gerados por esse programa.  
 A capacidade de administrar a quantidade de memória RAM cresceu a cada geração de processador, pois é ela que administra o endereçamentod ed ados através das funções de sus registradores e de sus **barramentos**. 
@@ -49,4 +55,24 @@ A quantidade de barramentos aumenta de acordo com a geração do computador.
 Na década de 1990 surgiu a internet, com máquinas e programas com capacidade de se conectar à rede e entre si e trocar informações. Essa capacidade é chamada de **interconexão** anteriormente era possivel somente aos grandes computadores mainframes, as grandes empresas e universidades
 
 # Hierarquia de níveis de computador
-Arquitetura de von Neumann
+Arquitetura de von Neumann:
+- Memória  
+- Unidade de controle  
+- Unidade Aritmetica e Lógica  
+- Entrada  
+- Saída
+
+Para que programas e dados sejam processados, foi criada uma organização em uma hierarquia de níveis de forma hipotética, ou seja, para poder classificar as etapas do processamento. O nível mais alto que é percebido pelo usuário e no qual são mostrados os programas e dados, os demais são executados internamente pelo computador.  
+
+| Nível 6 - Usuário | Programas executáveis |
+| Nível 5 - Linguagem de Alto Nível | C++ ,Java,FORTRAN etc |
+| Nível 4 - Linguagem Assembler | Assembler |
+| Nível 3 - Sistema | Sistema operacional |
+| Nível 2 - Máquina | Arquitetura do conjunto de instruções |
+| Nível 1 - Controle | Microcódigo implementado em hardware |
+| Nível 0 -Lógica Digital | Circuitos, barramentos etc |
+
+## Gargalo de von Neumann
+A vida de transmissão de dados entre a CPU e amemória limita de certa forma a velocidade do processamento. Os barramentos tem essa função e a troca de dados entre o processador e a memória fica limitada pela taxa de transferência de dados que esses barramentos são capazes de proporcionar, que em geral são bem menores que a capacidade dos processadores, sendo um fator limitador da velocidade atingida no procesaento das informações.  
+Uma das soluções encontradas para esse problema é o desenvolvimento de tecnologias com o maior número de barramentos.  
+
