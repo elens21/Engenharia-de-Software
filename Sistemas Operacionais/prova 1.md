@@ -72,3 +72,24 @@ I. Os sistemas _______________________________ requerem o compartilhamento de re
 II. Os sistemas ________________________________ eram utilizados por apenas um usuário, o que permitia que ele realizasse várias tarefas ao mesmo tempo.  
 
 ## Q12
+Analise o parágrafo a seguir e complete as lacunas com as palavras de uma das alternativas a seguir, referentes aos conceitos apresentados:  
+
+O ___________ tamanho refere-se à quantidade de dados que um arquivo armazena; já localização fornece o diretório, dispositivo de armazenamento ou pastas em que se encontra o arquivo. Quanto a/à __________, fica evidente a lógica da organização do sistema de arquivos, de forma a permitir sua localização. ______________ atribui restrições quanto à permissão para manipular o arquivo. O tipo define se é um arquivo executável, por exemplo, ou mesmo um arquivo de texto. __________ refere-se à quantidade de vezes que um arquivo passa por alterações, atualizações e mesmo remoção de informações. Por fim, o quadro traz atividade como um indicador de registros constantes em um arquivo.  
+- **atributo / localização / acessibilidade / volatilidade**  
+
+## Q14
+Temos basicamente três tipos de estados de processos: de execução, de pronto e de espera.  
+Quando os processos prontos são colocados em uma fila e organizados por ordem de chegada. Na sua vez, cada processo recebe a chance de uso da CPU até que sua execução seja completada. Os demais processos na fila de prontos permanecem esperando sua vez de serem executados Estamos fazendo referência ao escalonamento :  
+- **FIFO**
+
+
+# Q15
+Dada a definição "visa estabelecer um critério de acesso e implementar maior segurança ara a realização de ações com os arquivos", assinale a alternativa correspondente ao conceito do atributo apresentado:  
+- **Senha**  
+
+
+# Q16
+Uma das principais funções dos sistemas operacionais é controlar o processamento de informações de modo que cada uma das etapas, desde a criação de um processo até o seu encerramento, possa ser devidamente registrada e processada, além de garantir a sua continuidade em casos de interrupção e exceções
+
+Para Tanenbaum (2009), há eventos principais que fazem com que processos sejam criados, entre eles o evento que NÃO cria processos é:  
+- **Saída por erro**
