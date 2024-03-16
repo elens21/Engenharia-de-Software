@@ -1,0 +1,5 @@
+# Memórias
+- **Memória Cache:** Agiliza a comunicação do processador com a memória principal, prorporcionando um processamento mais eficiente.  
+- **Registradores:** Uma função básica da memória do computador é armazenas dados que serão processados. O processador recebe os dados e os deposita temporariamente na memória, e os registradores são os locais de memória onde esses dados ficam armazenados para que esse processamento aconteça.  
+- **Memória Principal/RAM:** Onde acontece o processamento dos dados, suas principais características,s eu funcionamento, seus tipos e os atuais modelos desta memória, como elas contribuem com a velocidade de processamento de um computador.  
+- **Memória ROM:** Tambem é uma memória principal, onde sao gravados os prograas de inicialização de um computador chamados de Firmwares e seus principais tipos de aplicação.  
