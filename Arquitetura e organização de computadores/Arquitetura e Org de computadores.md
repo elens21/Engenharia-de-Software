@@ -1,4 +1,4 @@
-
+------------- pg 35
 # Conceitos básicos de arquitetura e organização de computadores
 - Entrada de dados; Um input, por exemplo o teclado, mouse  
 - Processamento de dados; Como é feito o cálculo no nosso CPU(processador). Os cálculos ocorrem no nível binário (instruções de 0 e 1)  
@@ -20,25 +20,40 @@ Através deles o processador vai fazer a comunicaçao com os dispositvos de entr
 # Desenvolvimento histórico
 Máquinas de cálculo mecânicos:
 - Ábaco: Máquina de cálculo recânica e rudimentar no qual os números são representados por bolas de madeira sistematicamente colocadas em uma estrutura para relização dos calculos.  
+Considerado por muitos como o primeiro tipo de computador.  
 - Ossos de Napier: Se descobriu os cálculos através de logaritmos, que são expoentes utilizados em números para gerar outros números.  
 - Rodas dentadas de Pascal - Pascaline: A primeira calculadora do mundo. Projetada para as 4 operações matemáticas básicas.  
-- Máquina análitica de Babbage: Funcionava através de cartões que armazenavam informações e números. Ada Byron teve reconhecimento como primeira programadora da história.  
+- Máquina análitica de Babbage: Funcionava através de cartões que armazenavam informações e números. 
+Esses cartões poderiam ser usados para armaznas ideias ou números. Abrindo caminho para os conceitos da definição das unidades de armazenamento e processamento de dados.  
+Ada Byron teve reconhecimento como primeira programadora da história. Ela se interessou pela máquina e estabeleceu contato com Badagge, assim ela passou a escrever sequências de códigos que podiam ser executados pela máquina caso fosse construída. Também **observou que tais comandos necessitavam de loops** e de sub-rotinas para serem executados. (*máquina nunca chegou a ser contruída de fato, mas é inegavel sua contribuição para o avanço da área.*).  
+- Máquina de Turing: Máquina teórica que estudava os aspectos lóicos do funcionamento de um computador, como memória, processamento, linguagens, algoritmo etc. Também conhecida como maquina universal, contribuil de base para a área e o surgimento da arquitetura dos computadores modernos.  
+Essa foi **aperfeiçoada por Neumann** que então definiu a arquitetura básica dos computadores.  
 - Primeira geração de computadores: Entre 1946 e 1954. Funcionavam a válvula, um tubo de vidro parecido com uma lâmpada que proporcionava o processamento de informações. Precisava ser aquecida antes de usar.   
-- Segunda geração de computadores: Surgiu entre 1955 e 1964. Sua principal evolução é que aqui foram retiradas as válvulas, pois elas queimavam muito o que tornava todo o processamento lento e manual. Elas foram sobstituídas pelos **transistores** e agora já não era mais necessário o aquecimento.  
-- terceira geração de computadores: Entre 1964 e 1977, sua principal evolução são os circuitos integrados. Chamados assim porque integravam milhares de transistores em um unico componente eletrônico, diminuindo drasticamente o tamanho das máquinas. Tambem chamados de microchips.  
-- Quarta geração: 1977 e 1991. Sua evolução é o processador, um chip dotado de unidade central de processamento. Nesse momento os sistemas operacionais foram criados. Assim como discos rígidos, impresoras e os computadores pessoaos (PC's)  
-- Quinta geração: 1991 até os dias atuais. Inovações como os processadores de 64bits e etc.  
-
+- Segunda geração de computadores: Surgiu entre 1955 e 1964. Sua principal evolução é que aqui foram retiradas as válvulas, pois elas queimavam muito o que tornava todo o processamento lento e manual. Elas foram sobstituídas pelos **transistores** e agora já não era mais necessário o aquecimento. Criação da linguagem Assembly e em seguida Fortran e Pascal. Surgimento do armazenamento em disco e fita magnética.   
+- Terceira geração de computadores: Entre 1964 e 1977, sua principal evolução são os circuitos integrados. Chamados assim porque integravam milhares de transistores em um unico componente eletrônico, diminuindo drasticamente o tamanho das máquinas. Tambem chamados de microchips. Os computadores passaram a ser programados em alto nível.  
+- Quarta geração: 1977 e 1991. Sua evolução é o processador, um chip dotado de unidade central de processamento. Nesse momento os sistemas operacionais foram criados. Assim como discos rígidos, impresoras e os computadores pessoais (PC's)  
+- Quinta geração: 1991 até os dias atuais. Inovações como os processadores de 64bits e etc. Marcada por discos rígidos de grande capacidade, grande capacidade de conexão fundamental para a internet e evoluções no campo da inteligência artificial.  
+  
+  Resumindo:  
+1ª Geração – entre 1946 e 1954 – válvulas.  
+2ª Geração – entre 1955 e 1964 – transistores.  
+3ª Geração – entre 1964 e 1977 – circuitos integrados.  
+4ª Geração – entre 1977 e 1991 – microchips (8 e 16 bits).  
+5ª Geração – entre 1991 até os dias atuais – microchips (>16 bits), multimídia, rede.  
+  
 Segundo a **Lei de Moores** a densidade de transistores em um circuito integrado, na prática dobrou a cada **18 meses**.
 
 # Estruturas básicas do computador
 ## Arquitetura de von Neumann
 Prevê a possibilidade de uma máquina digital armazenar os programas e os dados no mesmo espaço de memória, estes serão processados por uma unidade de processamento central (CPU) composta por uma unidade de controle e uma unidade aritmética e lógica(ULA). Modelo usado até hoje.  
-
 ## Unidade de processamento (CPU)
 Composta pela unidade lógia aritmética, unidade de controle que controla as unidades de memória e os dispositivos de entrada e saída. Responsável por carregar e executar os programas.  
+- **Quantidade de bits** de um processador representa  a quantidade de informação que pode ser processada de cada vez,
 - **Multicore** ter dentro de um único chip, vários processadores.  
-Os processadores modernos tiveram gerações distintas como: A família x86 de 16 bit. Processadores de 32bits. Processadores de 64bits. Processadores Multicore. Intel Core.
+Entre 1960 e 70 surgiram as CPUs desenvolvidas em circuitos integrados que traziam instruções.  
+Um processador cirado pela **Intel, o 4004,** lançado em 191 foi desenvolvido para o uso em calculadores. Pode ser considerado o primeiro processador a aplicado a processar informações que utiizava a arquitetura de uma CPU.  
+Os processadores modernos tiveram gerações distintas como: A família x86 de 16 bit. Processadores de 32bits. Processadores de 64bits. Processadores Multicore. Intel Core.  
+Em meados de 1970 o processador **Intel 8086** que trazia um processamento de **8 bits**. Em 1970 foi lançado o processador **8088**, que possuia barramento externo de 8bits com registradores de 16 bits.
 
 ## ULA
 É responsável por executar os cálculos matemáticos utilizados para processar os dados dentro do computador.
