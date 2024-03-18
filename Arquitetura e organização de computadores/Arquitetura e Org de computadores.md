@@ -60,6 +60,11 @@ Em meados de 1970 o processador **Intel 8086** que trazia um processamento de **
 
 ## Memórias
 A memória RAM possibilita aos processadores endereçar dados dividos em regiões distintas usadas pelo sistema operacional da máquina, verifica informaçõe de dispositivos de entrada e saída, de programas do usuário e dados gerados por esse programa.  
+A unidade básica de armazenamento são os registradores.  
+A memória cache se encontra dentro da CPU.  
+Enquanto a memória RAM, a comunicação entre a memória RAM e a CPU ocorre um pouco mais lenta pois para chegar na memória RAM a CPU precisa passar por um barramento, assim perdendo um pouco do desempenho. 
+Assim a ordem de desempenho por rapidez seria:  
+**registradores < memória cachê < memória RAM**  
 A capacidade de administrar a quantidade de memória RAM cresceu a cada geração de processador, pois é ela que administra o endereçamentod ed ados através das funções de sus registradores e de sus **barramentos**. 
 
 ## Entrada e Saída
@@ -91,3 +96,20 @@ Para que programas e dados sejam processados, foi criada uma organização em um
 A vida de transmissão de dados entre a CPU e amemória limita de certa forma a velocidade do processamento. Os barramentos tem essa função e a troca de dados entre o processador e a memória fica limitada pela taxa de transferência de dados que esses barramentos são capazes de proporcionar, que em geral são bem menores que a capacidade dos processadores, sendo um fator limitador da velocidade atingida no procesaento das informações.  
 Uma das soluções encontradas para esse problema é o desenvolvimento de tecnologias com o maior número de barramentos.  
 
+
+# Instruções
+São um conjunto de algarismos binários. Referencia espaços na memória que serão utilizados para recuperar informaçõe para o processador e salvar os resultados de processamento.  
+Toda a informação utilizada em um processador deve ser armazenada.  
+O tamanho da memória está diretamente relacionado à 
+
+## Manipulação dos registradores
+O acesso ao dado é feito por meio do endereçamento direto, ou seja o endereço enviado é o próprio endereço do reistrador.  
+É feita por meio de instruções dos processadores, do **tipo I, tipo R e tipo J**  
+
+- Tipo I: Manipula endereços de memória ou constantes.  
+- Tipo R: Podem realizar a manipulação e as operações entre registradores.  
+- Tipo J: Realizam desvios de instruções a serem executados.  
+
+# Processadores MIPS
+Sua arquitetura foi usada como base de diversos processadores comerciais.  
+O MIPS possui **32 registradores** que armazenam dados de 32bits de tamanho.
