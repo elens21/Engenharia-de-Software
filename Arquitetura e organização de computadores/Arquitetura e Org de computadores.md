@@ -100,7 +100,7 @@ Uma das soluções encontradas para esse problema é o desenvolvimento de tecnol
 # Instruções
 São um conjunto de algarismos binários. Referencia espaços na memória que serão utilizados para recuperar informaçõe para o processador e salvar os resultados de processamento.  
 Toda a informação utilizada em um processador deve ser armazenada.  
-O tamanho da memória está diretamente relacionado à 
+É um conjunto de bits (0's e 1's) entendidos pelo processador como sinais eletrônicos, que podem ser representados por um conjunto de números.  
 
 ## Manipulação dos registradores
 O acesso ao dado é feito por meio do endereçamento direto, ou seja o endereço enviado é o próprio endereço do reistrador.  
@@ -113,3 +113,28 @@ O acesso ao dado é feito por meio do endereçamento direto, ou seja o endereço
 # Processadores MIPS
 Sua arquitetura foi usada como base de diversos processadores comerciais.  
 O MIPS possui **32 registradores** que armazenam dados de 32bits de tamanho.
+
+# Arquitetura de Von Neumann X de Harvard
+Nas 2, o computador possui quatro componentes básicos: memória, unidade de controle, unidade lógica arimética(ULA), entrada/saída de dados.  
+A diferença é que na de **Von Neumann** a memória de rporama e a memória de dados estão fisicamente no mesmo chip.  
+Enquanto na de **Harvard** existe uma separação física real da memória de dados e da memória de programas o que gera um custo maior de implantação. Porém a proteção é maior, já que por exemplo, se um vírus for executado, ele irá afetar apenas a memória de programa sme que os dados sejam perdidos.  
+
+- Memória de programa: (Memória de instruções/código) Armazena as instruções do programa que serão executadas pelo processador.  
+- Memória de dados: Armazena os dados que o programa manipula durante sua execução
+
+# Sistema numéricos 
+Sistemas de numeração:  
+
+|Sistema|Bases|Algarismos|
+|-------|-----|----------|
+|Binário|2|0,1|
+|Octal|8|0,1,2,3,4,5,6,7|
+|Decimal|10|0,1,2,3,4,5,6,7,8,9|
+Hexadecimal|16| 0,1,2,3,4,5,6,7,8,9,A,B,C,D,E,F|
+
+## Binarios
+Linguagem do computador composa por 0's e 1's
+
+## Octal
+
+ 
