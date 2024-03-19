@@ -15,7 +15,13 @@ Bites são sequências de 8 bits. então 1 byte = 8 bits.
 Via de comunicação do processador com o seu exterior.
 ![imagem: barramentos](//Arquitetura%20e%20organização%20de%20computadores/imagens/barramento1.png)  
 São as vias por onde passam os dados, permitem a transmissão de informações entre a CPU, os disposistivos e as unidades de memória.  
-Através deles o processador vai fazer a comunicaçao com os dispositvos de entrada e saída
+Através deles o processador vai fazer a comunicaçao com os dispositvos de entrada e saída.  
+- Barramento de dados: Interliga a CPU à memória e vice-versa para atransferência das informações que serão processadas. Ela determina diretamente o desmepenho do sistema. Quanto maior o número de vias de comunicação maior o npumerod e bits transferidos ou seja, mais rapidez.
+- Barramento de endereços: Interliga a CPU a memória fazendo seu endereçamento e tem o número de vias correspondete a tecnologia de bits do processador.    
+- Barramento de controle: Interliga a CPU, aos componentes e disposistivos de um computador, componentes de entrada e saída, memórias auxiliares e de armazenamento entre outros. 
+  Faz a comunicação entre os periféricos com a CPU. Durante o processamento de um programa, cada instrução é levada a CPU a partir da memória, junto aos dados necessários para executa-la.   
+- Barramento Local: Funciona na mesma velocidade do relógio do processador. Interliga o processador aos dispositivos com maior velocidade, memória cache e principal.  
+- Barramento de sistema: Faz com que o barramento local faça a ligação entre o processador e a memória cache, e esta se interliga com a memória RAM,
 
 # Desenvolvimento histórico
 Máquinas de cálculo mecânicos:
@@ -123,6 +129,7 @@ Enquanto na de **Harvard** existe uma separação física real da memória de da
 - Memória de dados: Armazena os dados que o programa manipula durante sua execução
 
 # Sistema numéricos 
+Na área de computadores o sistema de numeração
 Sistemas de numeração:  
 
 |Sistema|Bases|Algarismos|
@@ -132,8 +139,11 @@ Sistemas de numeração:
 |Decimal|10|0,1,2,3,4,5,6,7,8,9|
 Hexadecimal|16| 0,1,2,3,4,5,6,7,8,9,A,B,C,D,E,F|
 
+## Decimal
+Composto por 10 símbolos: 0,1,2,3,4,5,6,7,8,9. A partir desses podemos utilizar nossa numeração decimal formando dígitos. (Sistema de base 10 pois possui 10 dígitos)
+
 ## Binarios
-Linguagem do computador composa por 0's e 1's
+Linguagem do computador composta por 0's e 1's.
 
 ## Octal
 
