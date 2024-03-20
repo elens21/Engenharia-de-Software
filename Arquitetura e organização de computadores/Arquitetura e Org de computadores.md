@@ -143,7 +143,20 @@ Hexadecimal|16| 0,1,2,3,4,5,6,7,8,9,A,B,C,D,E,F|
 Composto por 10 símbolos: 0,1,2,3,4,5,6,7,8,9. A partir desses podemos utilizar nossa numeração decimal formando dígitos. (Sistema de base 10 pois possui 10 dígitos)
 
 ## Binarios
-Linguagem do computador composta por 0's e 1's.
+Linguagem do computador composta por 0's e 1's. No sistema binario usamos somente dois niveis de tensão, podendo projetar um circuito eletrônico preciso e simples. O zero no sistema binário representa a ausência de tênsão, enquanto o 1 representa uma tensão.  
+Os computadores da primeira geração eram programados justamente por chaves (*switches*), que eram desligados para representar o"0" e ligados para representar o "1".  
+Os números binários são representados com a base 2.  
+Exemplo:  
+converter número binario: **00110111** para decimal:  
+primeiro análise que o número binario em questão tem 7 algarismos, dessa forma pra cada algarismo vamos o multiplicar pela base 2 elevado de 7 a 0, da seguinte forma:
+```  
+    (0*2⁷)+(0*2⁶)+(1*2⁵)+(1*2⁴)+(0*2³)+(1*2²)+(1*2¹)+(1*2⁰)
+```
+inicialmente teremos:  
+    *(128) + (64) + (132) + (116) + (8) + (14) + (12) + (11)*  
+E fazendo essas somas vamos ter o resultado **55**.  
+Ou seja, o número binário **00110111** é equivalente a **55** em decimal.  
+Nesse exemplo temos um conjunto de bits (nesse casp  bits, pois contamos de 0 a 7, portante = 8 algarismos), formando 1 byte. Um byte representa um caractere (letra, número ou simbolo).
 
 ## Octal
 
