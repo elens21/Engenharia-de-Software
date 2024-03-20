@@ -159,5 +159,24 @@ Ou seja, o número binário **00110111** é equivalente a **55** em decimal.
 Nesse exemplo temos um conjunto de bits (nesse casp  bits, pois contamos de 0 a 7, portante = 8 algarismos), formando 1 byte. Um byte representa um caractere (letra, número ou simbolo).
 
 ## Octal
+O números são representados por 8 simbolos: 0,1,2,3,4,5,6,7. Ela foi usada como alternativa ao binário como uma forma mais enxuta e compacta. 
+Um número octal sempre está em múltiplos de 3 bits: (001) (100) (111), porém um computador não vai colocar os parênteses, sendo assim ficaria:  
+001 100 111  
+Por ter uma base 8, aqui cada grupo binário de 3 bits recebe um valor de oito elevado a 0,1,2,3,4 etc.
 
- 
+Por exemplo:  
+Convertendo 001 010 100 001 para decimal  
+1 - Vamos determinar o valor decimal de cada tríade  
+na primeira temos: 
+    001 × 8⁰, ou 1 × 1 = 1  
+Na segunda:  
+    100 × 8¹, ou 4 × 8 = 32  
+Terceira:  
+    010 × 8², ou 2 × 64 = 128  
+Quarta:  
+    001 × 8³, ou 1 × 512 = 512  
+      
+2 - Soma os valores das triades:  
+     1 + 32 + 128 + 512 = 673  
+  
+Ou seja o valor decimal do número octal **001 010 100 001** é **673**.
