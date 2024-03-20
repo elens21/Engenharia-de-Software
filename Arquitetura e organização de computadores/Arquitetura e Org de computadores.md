@@ -180,3 +180,8 @@ Quarta:
      1 + 32 + 128 + 512 = 673  
   
 Ou seja o valor decimal do número octal **001 010 100 001** é **673**.
+
+## Hexadecimal
+Sistema de base 16 (simbolos de A-F e de 0-9). Um byte é criado por 8 bits e é representado por dois digitos hexa. Ao utilizar todos os digitos de um jeito, segue repetindo de outro jeito, assim:  
+10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 1A, 1B, 1C, 1D, 1E, 1F, 20, 21, 22, 23.  
+Para transformar um binário em hexadecimal, separamos o binário em grupos de 4 bits, iniciando pela direita. 1 dígito hexadecimal pode representa um número binário de 4 dígitos.
