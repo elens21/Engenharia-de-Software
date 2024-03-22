@@ -100,14 +100,14 @@ Para que programas e dados sejam processados, foi criada uma organização em um
 
 ## Gargalo de von Neumann
 A vida de transmissão de dados entre a CPU e amemória limita de certa forma a velocidade do processamento. Os barramentos tem essa função e a troca de dados entre o processador e a memória fica limitada pela taxa de transferência de dados que esses barramentos são capazes de proporcionar, que em geral são bem menores que a capacidade dos processadores, sendo um fator limitador da velocidade atingida no procesaento das informações.  
-Uma das soluções encontradas para esse problema é o desenvolvimento de tecnologias com o maior número de barramentos.  
+Uma das soluções encontradas para esse problema é o desenvolvimento de tecnologias com o maior número de barramentos.
+
 
 
 # Instruções
 São um conjunto de algarismos binários. Referencia espaços na memória que serão utilizados para recuperar informaçõe para o processador e salvar os resultados de processamento.  
 Toda a informação utilizada em um processador deve ser armazenada.  
 É um conjunto de bits (0's e 1's) entendidos pelo processador como sinais eletrônicos, que podem ser representados por um conjunto de números.  
-
 ## Manipulação dos registradores
 O acesso ao dado é feito por meio do endereçamento direto, ou seja o endereço enviado é o próprio endereço do reistrador.  
 É feita por meio de instruções dos processadores, do **tipo I, tipo R e tipo J**  
