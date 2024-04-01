@@ -1,1 +1,1 @@
-# Introdução a Arquiteturas de Alto Nível
+# Introdução a Arquiteturas Paralelas
